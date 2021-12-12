@@ -1,5 +1,4 @@
 import navigation from '../components/navigation'
-import { html } from '../utils'
 
 interface PageProps {
   title: string;
