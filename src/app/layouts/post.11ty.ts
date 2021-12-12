@@ -8,7 +8,7 @@ exports.data = {
   layout: 'base.11ty.js'
 }
 
-exports.render = ({ title, page, content }: BlogPostProps) => `
+exports.render = ({ title, page, content }: BlogPostProps) => /*html*/`
   <a href="/blog">Back</a>
   <article>
     <h1>${title}</h1>

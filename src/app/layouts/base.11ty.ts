@@ -1,4 +1,5 @@
 import navigation from '../components/navigation'
+import { html } from '../utils'
 
 interface PageProps {
   title: string;
@@ -14,7 +15,7 @@ module.exports = ({
   content,
   lang = 'en',
   description = defaultDescription,
-}: PageProps) => `
+}: PageProps) => /*html*/`
   <!doctype html>
   <html lang="${lang}">
     <head>

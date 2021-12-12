@@ -1,4 +1,4 @@
-const nav = `
+const nav = /*html*/`
   <nav>
     <a href="/">Home</a>
     <a href="/blog/">Blog</a>
