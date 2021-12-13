@@ -1,8 +1,10 @@
 module.exports = function(config) {
-  config.addPassthroughCopy({ public: './' })
-
+  config.addPassthroughCopy({ public: './'})
+  config.addPassthroughCopy('./src/assets');
+  
+  config.addWatchTarget("./src/assets/**/*.css");
   config.setBrowserSyncConfig({
-    files: ['dist/**/*'],
+    files: ['_site/**/*'],
   })
 
   return {

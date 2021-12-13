@@ -1,0 +1,9 @@
+:root {
+
+	--ak-color-app: hsl(230, 24%, 19%);
+	--ak-color-text: hsl(34, 73%, 95%);
+	--ak-color-accent: hsl(189, 69%, 65%);
+
+	--ak-color-contrast: hsl(34, 73%, 61%);
+	--ak-color-faded: hsl(189, 69%, 90%);
+}

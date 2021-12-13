@@ -12,7 +12,10 @@ exports.render = ({ title, page, content }: BlogPostProps) => /*html*/`
   <a href="/blog">Back</a>
   <article>
     <h1>${title}</h1>
-    <time>${page.date}</time>
+    <div class="ak-post__meta">
+      <time class="ak-post__meta__time">${page.date}</time>
+    </div>
+   
     ${content}
   </article>
 `

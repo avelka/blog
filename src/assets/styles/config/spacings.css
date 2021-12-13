@@ -1,0 +1,5 @@
+:root {
+
+	--ak-sp-base: 1rem;
+	--ak-sp-gutter: var(--ak-sp-base);
+}
