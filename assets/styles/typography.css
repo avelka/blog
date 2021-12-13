@@ -1,0 +1,35 @@
+body {
+	color: var(--ak-color-text);
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 1em;
+	line-height: 1.8;
+}
+
+:is(h1,h2,h3,h4,h5,h6) {
+	font-family: Georgia, 'Times New Roman', Times, serif;
+	font-weight: 400;
+	color: var(--ak-color-contrast);
+}
+
+a {
+	color: var(--ak-color-accent);
+	border-radius: .25em;
+}
+
+a:focus,
+a:hover {
+	color: var(--ak-color-contrast);
+}
+a:focus {	outline: var(--ak-color-contrast) solid 2px; }
+strong {
+	color: var(--ak-color-accent);
+}
+em {
+	color: var(--ak-color-faded);
+}
+p code {
+	background-color: rgba(255,255,255, 0.1);
+	padding: 0 .25em;
+	border-radius: .25em;
+	color: white;
+}

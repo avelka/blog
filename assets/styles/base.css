@@ -1,0 +1,57 @@
+body {
+	background: var(--ak-color-app);
+	display: grid;
+	grid-template-columns: minmax(min-content, 1fr) 2fr;
+	padding: var(--ak-sp-gutter);
+	gap: var(--ak-sp-gutter);
+}
+
+header {
+	place-self: start flex-end;
+	position: relative;
+	min-width: 15rem;
+	display: flex;
+	justify-content: end;
+}
+
+header > div {
+	position: fixed;
+	border-inline-end:  2px solid var(--ak-color-accent);
+	padding: var(--ak-sp-gutter);
+}
+
+nav {
+	display: flex;
+	flex-direction: column;
+	text-align: end;
+	font-size: 1.5rem;
+
+}
+nav a {
+	text-decoration: none;
+	color: var(--ak-color-accent);
+}
+
+nav a:hover,
+nav a:focus {
+	color: var(--ak-color-contrast);
+}
+
+main {
+	max-width: 45rem;
+}
+
+.ak-post__meta {
+	color: var(--ak-color-faded);
+	font-size: .6em;
+	border-block: 1px solid currentColor;
+	background-color: rgba(255,255,255, 0.1);
+	padding: var(--ak-sp-gutter);
+}
+
+article :is(h1, h2, h3) {
+	position: sticky;
+	top: 0;
+	background-color: var(--ak-color-app);
+	line-height: 3;
+}
