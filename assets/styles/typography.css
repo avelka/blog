@@ -1,12 +1,15 @@
 body {
 	color: var(--ak-color-text);
-	font-family: Arial, Helvetica, sans-serif;
+	font-family: Georgia, 'Times New Roman', Times, serif;
 	font-size: 1em;
 	line-height: 1.8;
+	text-rendering:optimizeLegibility;
+	-webkit-font-smoothing:antialiased;
+	-moz-osx-font-smoothing:grayscale;
 }
 
 :is(h1,h2,h3,h4,h5,h6) {
-	font-family: Georgia, 'Times New Roman', Times, serif;
+	font-family: Didot, Georgia, 'Times New Roman', Times, serif;
 	font-weight: 400;
 	color: var(--ak-color-contrast);
 }

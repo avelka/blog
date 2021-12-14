@@ -1,32 +1,21 @@
-body {
-	background: var(--ak-color-app);
-	display: grid;
-	grid-template-columns: minmax(min-content, 1fr) 2fr;
-	padding: var(--ak-sp-gutter);
-	gap: var(--ak-sp-gutter);
+body, html {
+	width: 100%;
+	height: 100%;
+	margin: 0;
+	
+}
+
+.fleck-pattern {
+  width: 100%;
+	height: 100%;
+	background-color: var(--background-color);
+	background-image: linear-gradient(var(--ak-color-darken) 40%, transparent), paint(fleck); 
 }
 
 header {
-	place-self: start flex-end;
-	position: relative;
-	min-width: 15rem;
-	display: flex;
-	justify-content: end;
+	background-color: rgba(0,0,0, .2);
 }
 
-header > div {
-	position: fixed;
-	border-inline-end:  2px solid var(--ak-color-accent);
-	padding: var(--ak-sp-gutter);
-}
-
-nav {
-	display: flex;
-	flex-direction: column;
-	text-align: end;
-	font-size: 1.5rem;
-
-}
 nav a {
 	text-decoration: none;
 	color: var(--ak-color-accent);
@@ -54,4 +43,7 @@ article :is(h1, h2, h3) {
 	top: 0;
 	background-color: var(--ak-color-app);
 	line-height: 3;
+}
+img {
+	max-width: 100%;
 }
