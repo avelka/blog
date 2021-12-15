@@ -1,29 +1,46 @@
 body {
 	color: var(--ak-color-text);
-	font-family: Georgia, 'Times New Roman', Times, serif;
+	font-family: Georgia, "Times New Roman", Times, serif;
 	font-size: 1em;
-	line-height: 1.8;
-	text-rendering:optimizeLegibility;
-	-webkit-font-smoothing:antialiased;
-	-moz-osx-font-smoothing:grayscale;
+	line-height: 1.6;
+	text-rendering: optimizeLegibility;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
 }
 
-:is(h1,h2,h3,h4,h5,h6) {
-	font-family: Didot, Georgia, 'Times New Roman', Times, serif;
-	font-weight: 400;
+:is(h1, h2, h3, h4, h5, h6) {
+	font-family: Arial, Helvetica, sans-serif, Georgia, "Times New Roman", Times, serif;
+	font-weight: 700;
 	color: var(--ak-color-contrast);
+	text-shadow: 1px 1px var(--ak-color-darken);
+}
+article .header-anchor {
+	position: absolute;
+	transform: translateX(-1em);
+	opacity: 0.3;
+	text-decoration: none;
+	transition: 0.3s ease-out opacity;
+	color: var(--ak-color-accent);
 }
 
+article .header-anchor:focus,
+article .header-anchor:hover {
+	opacity: 1;
+	outline: none;
+	color: var(--ak-color-accent);
+}
 a {
 	color: var(--ak-color-accent);
-	border-radius: .25em;
+	border-radius: 0.25em;
 }
 
 a:focus,
 a:hover {
 	color: var(--ak-color-contrast);
 }
-a:focus {	outline: var(--ak-color-contrast) solid 2px; }
+a:focus {
+	outline: var(--ak-color-contrast) solid 2px;
+}
 strong {
 	color: var(--ak-color-accent);
 }
@@ -31,8 +48,8 @@ em {
 	color: var(--ak-color-faded);
 }
 p code {
-	background-color: rgba(255,255,255, 0.1);
-	padding: 0 .25em;
-	border-radius: .25em;
+	background-color: rgba(255, 255, 255, 0.1);
+	padding: 0 0.25em;
+	border-radius: 0.25em;
 	color: white;
 }

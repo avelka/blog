@@ -9,7 +9,7 @@
 	--ak-color-darken: hsl(230, 24%, 15%);
 
 	--fleck-seed: 123456;
-  --fleck-count: 100;
+  --fleck-count: 250;
   --fleck-size-base: 5px;
   --fleck-color-1: var(--ak-color-contrast);
   --fleck-color-2: var(--ak-color-darken);

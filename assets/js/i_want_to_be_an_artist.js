@@ -1,3 +1,6 @@
+//It's a joke, I am perfectly fine being a lazy dev, and I dont want to spend time inventing fancy stuff here
+// thanks to https://github.com/georgedoescode/ for this snippet
+
 (async function () {
   if (CSS["paintWorklet"] === undefined) {
     await import("https://unpkg.com/css-paint-polyfill");
