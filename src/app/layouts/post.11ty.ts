@@ -9,7 +9,10 @@ exports.data = {
 }
 
 exports.render = ({ title, page, content }: BlogPostProps) => /*html*/`
-  <a href="/blog">Back</a>
+  <a href="/blog">
+  <span class="material-icons">
+  arrow_back
+  </span></a>
   <article>
     <h1>${title}</h1>
     <div class="ak-post__meta">
