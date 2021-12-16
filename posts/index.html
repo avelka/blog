@@ -3,7 +3,7 @@
 	<head>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<title>Blog</title>
+		<title>Your Blog Name</title>
 		<meta name="description" content="I am writing about my experiences as a naval navel-gazer.">
 		<script src="/assets/js/i_want_to_be_an_artist.js"></script>
 		<link href="https://fonts.googleapis.com/icon?family=Material+Icons"
@@ -38,33 +38,36 @@
 		</header>
 		
 
-		<main id="main-content" >
+		<main id="main-content"  class="tmpl-home">
 
 			
-<h1>Blog</h1>
+<h1>Archive</h1>
 
-<ul>
-  
-    <li>
-      <a href="/posts/design-system_working-with-svg-icons/">
-        Design System: Working with Icons and SVG
-      </a>
-    </li>
-  
-    <li>
-      <a href="/posts/second-post/">
-        11ty is awesome
-      </a>
-    </li>
-  
-    <li>
-      <a href="/posts/first-post/">
-        This is my first post.
-      </a>
-    </li>
-  
-</ul>
 
+<ol reversed class="postlist" style="counter-reset: start-from 4">
+
+  <li class="postlist-item">
+    <a href="/posts/design-system_working-with-svg-icons/" class="postlist-link">Design System: Working with Icons and SVG</a>
+    <time class="postlist-date" datetime="2021-12-12">12 Dec 2021</time>
+    
+  </li>
+
+  <li class="postlist-item">
+    <a href="/posts/second-post/" class="postlist-link">11ty is awesome</a>
+    <time class="postlist-date" datetime="2020-06-29">29 Jun 2020</time>
+    
+  </li>
+
+  <li class="postlist-item">
+    <a href="/posts/first-post/" class="postlist-link">This is my first post.</a>
+    <time class="postlist-date" datetime="2018-05-01">01 May 2018</time>
+    
+      
+      <a href="/tags/another-tag/" class="post-tag">another tag</a>
+    
+  </li>
+
+</ol>
 		</main>
 		<a class="floatBtn toTop" href="#">
 			<span class="material-icons">
@@ -73,6 +76,6 @@
 		</a>
 		<footer></footer>
 
-		<!-- Current page: /blog/ -->
+		<!-- Current page: /posts/ -->
 	</body>
 </html>

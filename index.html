@@ -1,69 +1,84 @@
-
-  <!doctype html>
-  <html lang="en">
-    <head>
-      <meta charset="utf-8">
-      <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <meta name="description" content="TypeScript starter for Eleventy">
-      <script src="/assets/js/i_want_to_be_an_artist.js"></script>
-      <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Your Blog Name</title>
+		<meta name="description" content="I am writing about my experiences as a naval navel-gazer.">
+		<script src="/assets/js/i_want_to_be_an_artist.js"></script>
+		<link href="https://fonts.googleapis.com/icon?family=Material+Icons"
       rel="stylesheet">
-      <link rel="stylesheet" href="/assets/styles.css">
-      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/plugins/toolbar/prism-toolbar.min.css" integrity="sha512-ycl7dIZ0VJ5535/dzskAMTwOI6OoTNZ3PeD+tfckvYqMmAzaEwQfJHqJTSqcV2iQeJnp5XxnFy5jKotibstp7A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-      <title>Hello world</title>
-    </head>
-    <body >
-      <div class="fleck-pattern">
-      </div>
-      
-  <header>
-  <nav class="skip-content">
-    <a href="#main-navigation">menu</a>
-    <a href="#main-content">content</a>
-  </nav>
-  <nav class="main-nav" id="main-navigation">
-    <a href="/" class="home logo">a.k</a>
-    <a href="/blog/" class="icon"><span class="material-icons">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer"/>
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/plugins/toolbar/prism-toolbar.min.css" integrity="sha512-ycl7dIZ0VJ5535/dzskAMTwOI6OoTNZ3PeD+tfckvYqMmAzaEwQfJHqJTSqcV2iQeJnp5XxnFy5jKotibstp7A==" crossorigin="anonymous" referrerpolicy="no-referrer"/>
+
+		<link rel="stylesheet" href="/assets/css/styles.css">
+		<link rel="alternate" href="/feed/feed.xml" type="application/atom+xml" title="Your Blog Name">
+		<link rel="alternate" href="/feed/feed.json" type="application/json" title="Your Blog Name">
+	</head>
+	<body>
+		<div class="fleck-pattern"></div>
+		<header>
+			<nav class="skip-content">
+				<a href="#main-navigation">menu</a>
+				<a href="#main-content">content</a>
+			</nav>
+			<nav class="main-nav" id="main-navigation">
+				<a href="/" class="home logo">a.k</a>
+				<a href="/posts/" class="icon">
+					<span class="material-icons">
     topic
     </span>
-    </a>
-    <a href="/about" class="icon"><span class="material-icons">
+				</a>
+				<a href="/about" class="icon">
+					<span class="material-icons">
     person_pin
     </span>
-    </a>
-  </nav>
-  </header>
+				</a>
+			</nav>
+		</header>
+		
 
-      <main id="main-content">
-        <h1 id="salut%2C-moi-c'est-antoine-!" tabindex="-1"><a class="header-anchor" href="#salut%2C-moi-c'est-antoine-!">#</a> Salut, moi c'est <strong>Antoine</strong> !</h1>
-<p>I am a french web developer working in Germany. I build website using various technologies, such  as HTML, CSS and Javascript for the front-end, with the help of diverse frameworks (often react, but others too...). I do some backend too, I have worked with PHP and Laravel, node and express and played a little with flask and Django.</p>
-<p>I have interests in the following fields:</p>
-<ul>
-<li>
-<p><strong>UX and accessibility</strong>, I was formed as a Graphic Designer and keep a keen eye on those topic. Sadly I have not alway got the opportunity to invest as much time as I wanted in this area, I plan to change that and use this space to document my progress.</p>
-</li>
-<li>
-<p><strong>Performances</strong>, don't we all ?</p>
-</li>
-<li>
-<p><strong>Authentication and security.</strong> I have worked with advanced <em>OAuth</em> and OpenIdConnect implementation, I also have the objective to progress in this area.</p>
-</li>
-<li>
-<p><strong>Remote work, Developer experience and ergonomics.</strong><br>
-I was already doing some HomeOffice days before the pandemic, but the past couple of years gave me the opportunity to reevaluate how I organized my work habits and environnement.</p>
-</li>
-</ul>
+		<main id="main-content"  class="tmpl-home">
 
-      </main>
-      <a class="floatBtn toTop">
-        <span class="material-icons">
+			
+<h1>Latest 3 Posts</h1>
+
+
+
+<ol reversed class="postlist" style="counter-reset: start-from 4">
+
+  <li class="postlist-item">
+    <a href="/posts/design-system_working-with-svg-icons/" class="postlist-link">Design System: Working with Icons and SVG</a>
+    <time class="postlist-date" datetime="2021-12-12">12 Dec 2021</time>
+    
+  </li>
+
+  <li class="postlist-item">
+    <a href="/posts/second-post/" class="postlist-link">11ty is awesome</a>
+    <time class="postlist-date" datetime="2020-06-29">29 Jun 2020</time>
+    
+  </li>
+
+  <li class="postlist-item">
+    <a href="/posts/first-post/" class="postlist-link">This is my first post.</a>
+    <time class="postlist-date" datetime="2018-05-01">01 May 2018</time>
+    
+      
+      <a href="/tags/another-tag/" class="post-tag">another tag</a>
+    
+  </li>
+
+</ol>
+
+<p>More posts can be found in <a href="/posts/">the archive</a>.</p>
+		</main>
+		<a class="floatBtn toTop" href="#">
+			<span class="material-icons">
         arrow_upward
-        </span>
-      </a>
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/prism.min.js" integrity="sha512-hpZ5pDCF2bRCweL5WoA0/N1elet1KYL5mx3LP555Eg/0ZguaHawxNvEjF6O3rufAChs16HVNhEc6blF/rZoowQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/plugins/autoloader/prism-autoloader.min.js" integrity="sha512-sv0slik/5O0JIPdLBCR2A3XDg/1U3WuDEheZfI/DI5n8Yqc3h5kjrnr46FGBNiUAJF7rE4LHKwQ/SoSLRKAxEA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/plugins/toolbar/prism-toolbar.min.js" integrity="sha512-YrvgEHAi5/3o2OT+/vh1z19oJXk/Kk0qdVKbjEFl9VRmcLTaWRYzVziZCvoGpJ2TrnV7rB8pnJcz1ioVJjgw2A==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/plugins/copy-to-clipboard/prism-copy-to-clipboard.min.js" integrity="sha512-pUNGXbOrc+Y3dm5z2ZN7JYQ/2Tq0jppMDOUsN4sQHVJ9AUQpaeERCUfYYBAnaRB9r8d4gtPKMWICNhm3tRr4Fg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    </body>
-  </html>
+      </span>
+		</a>
+		<footer></footer>
+
+		<!-- Current page: / -->
+	</body>
+</html>
