@@ -1,5 +1,5 @@
 ---
-layout: post.11ty.js
+layout: layouts/post.njk
 title:  'Design System: Working with Icons and SVG'
 date:   2021-12-12
 ---

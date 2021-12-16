@@ -1,5 +1,5 @@
 ---
-layout: post.11ty.js
+layout: layouts/post.njk
 title:  11ty is awesome
 date:   2020-06-29
 ---

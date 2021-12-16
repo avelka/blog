@@ -1,5 +1,5 @@
 ---
-layout: base.11ty.js
+layout: layouts/base.njk
 ---
 
 # Salut, moi c'est **Antoine** ! 

@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>{{ title or metadata.title }}</title>
+		<meta name="description" content="{{ description or metadata.description }}">
+		<script src="{{ '/assets/js/i_want_to_be_an_artist.js' | url }}"></script>
+		<link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer"/>
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/plugins/toolbar/prism-toolbar.min.css" integrity="sha512-ycl7dIZ0VJ5535/dzskAMTwOI6OoTNZ3PeD+tfckvYqMmAzaEwQfJHqJTSqcV2iQeJnp5XxnFy5jKotibstp7A==" crossorigin="anonymous" referrerpolicy="no-referrer"/>
+
+		<link rel="stylesheet" href="{{ '/assets/css/styles.css' | url }}">
+		<link rel="alternate" href="{{ metadata.feed.path | url }}" type="application/atom+xml" title="{{ metadata.title }}">
+		<link rel="alternate" href="{{ metadata.jsonfeed.path | url }}" type="application/json" title="{{ metadata.title }}">
+	</head>
+	<body>
+		<div class="fleck-pattern"></div>
+		<header>
+			<nav class="skip-content">
+				<a href="#main-navigation">menu</a>
+				<a href="#main-content">content</a>
+			</nav>
+			<nav class="main-nav" id="main-navigation">
+				<a href="/" class="home logo">a.k</a>
+				<a href="/posts/" class="icon">
+					<span class="material-icons">
+    topic
+    </span>
+				</a>
+				<a href="/about" class="icon">
+					<span class="material-icons">
+    person_pin
+    </span>
+				</a>
+			</nav>
+		</header>
+
+		{#- Read more about `eleventy-navigation` at https://www.11ty.dev/docs/plugins/navigation/ #}
+		{# <ul class="nav">
+      {%- for entry in collections.all | eleventyNavigation %}
+        <li class="nav-item{% if entry.url == page.url %} nav-item-active{% endif %}"><a href="{{ entry.url | url }}">{{ entry.title }}</a></li>
+      {%- endfor %}
+      </ul> #}
+
+		<main id="main-content" {% if templateClass %} class="{{ templateClass }}"{% endif %}>
+
+			{{ content | safe }}
+		</main>
+		<a class="floatBtn toTop" href="#">
+			<span class="material-icons">
+        arrow_upward
+      </span>
+		</a>
+		<footer></footer>
+
+		<!-- Current page: {{ page.url | url }} -->
+	</body>
+</html>
