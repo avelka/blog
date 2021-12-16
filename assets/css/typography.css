@@ -1,7 +1,7 @@
 body {
 	color: var(--ak-color-text);
 	font-family: Georgia, "Times New Roman", Times, serif;
-	font-size: 1em;
+	font-size: 1.2em;
 	line-height: 1.6;
 	text-rendering: optimizeLegibility;
 	-webkit-font-smoothing: antialiased;
