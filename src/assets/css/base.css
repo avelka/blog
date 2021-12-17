@@ -107,3 +107,14 @@ header a:focus {
 header a:focus {
 	outline: none;
 }
+
+a.toTop {
+	position: fixed;
+	bottom: 5rem;
+	left: calc(50vw + 17.5rem);
+	border-radius:  100%;
+	border: 2px solid currentColor;
+	aspect-ratio: 1;
+	display: flex;
+	text-decoration: none;
+}

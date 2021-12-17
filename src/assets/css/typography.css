@@ -14,7 +14,7 @@ body {
 	color: var(--ak-color-contrast);
 	text-shadow: 1px 1px var(--ak-color-darken);
 }
-article .header-anchor {
+article .direct-link {
 	position: absolute;
 	transform: translateX(-1em);
 	opacity: 0.3;
@@ -23,8 +23,8 @@ article .header-anchor {
 	color: var(--ak-color-accent);
 }
 
-article .header-anchor:focus,
-article .header-anchor:hover {
+article .direct-link:focus,
+article .direct-link:hover {
 	opacity: 1;
 	outline: none;
 	color: var(--ak-color-accent);

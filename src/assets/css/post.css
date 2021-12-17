@@ -1,0 +1,12 @@
+.ak-tags_list {
+ display: flex;
+ gap: 5px;
+}
+.ak-tags_list__item {
+	background-color: var(--ak-color-darken);
+	padding: 0 .5em; 
+	font-size: small ;
+	font-family: 'Courier New', Courier, monospace;
+	font-weight: bold;
+	text-decoration: none ;
+}

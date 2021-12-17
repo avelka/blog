@@ -1,24 +1,12 @@
 ---
-layout: layouts/post.njk
+
 title:  'Design System: Working with Icons and SVG'
 date:   2021-12-12
+tags: ['Design System', 'Icons', 'Ui/Ux']
+layout: layouts/post.njk
+		
 ---
 
-- What is SVG?
-	- vector & raster
-	- xml 
-- How icons are created
-	- Design principle
-	- Tools
-- Where to used icons 
-- Handoff to Bundle
-	- cleanup
-	- export
-	- optimization
-	- sharing or importing
-- Bundling and sharing
-- Miscellaneous tips
-- Bibliography
 
 ## What is SVG?
 
