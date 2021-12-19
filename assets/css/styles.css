@@ -1,10 +1,13 @@
 @import './config/colors.css';
+@import './config/graphics.css';
 @import './config/spacings.css';
+@import './config/animations.css';
 
 
 @import './base.css';
 @import './typography.css';
 
-
+@import './header.css';
+@import './page.css';
 @import './post.css';
 

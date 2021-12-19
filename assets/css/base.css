@@ -5,108 +5,28 @@ html {
 	margin: 0;
 }
 
+html {
+	background-color: var(--ak-c-surface-1);
+}
+
 .fleck-pattern {
-	position: fixed;
+	position: absolute;
 	z-index: -1;
 	top: 0;
 	bottom: 0;
 	left: 0;
 	right: 0;
-	background-color: var(--background-color);
-	background-image: linear-gradient(transparent, var(--background-color) 25%), paint(fleck);
+	background-color: var(--ak-c-surface-1);
+	background-image: linear-gradient(transparent 0%, var(--ak-c-surface-1) 15%), paint(fleck);
+	animation: fadeIn 1s linear;
+	opacity: .5;
 }
 
-nav a {
-	text-decoration: none;
-	color: var(--ak-color-accent);
-}
-
-nav a:hover,
-nav a:focus {
-	color: var(--ak-color-contrast);
-}
-
-main {
-	max-width: 45rem;
-}
-
-.ak-post__meta {
-	color: var(--ak-color-faded);
-	font-size: 0.6em;
-	border-block: 1px solid currentColor;
-	background-color: rgba(255, 255, 255, 0.1);
-	padding: var(--ak-sp-gutter);
-}
-
-main {
-	padding: 2rem 0;
-	width: 35rem;
-	max-width: calc(100vw - 6rem);
-	margin: auto;
-}
 
 img {
 	max-width: 100%;
 }
 
-.skip-content {
-	position: fixed;
-	top: 0rem;
-	left: 0rem;
-	padding: 0rem 1rem;
-	background: var(--ak-color-darken);
-	color: var(--ak-color-app);
-	display: flex;
-	justify-content: center;
-	line-height: 3;
-	transform: translateX(-15px);
-	opacity: 0;
-	transition: 0.5s ease-in-out all;
-}
-.skip-content:focus-within {
-	transform: translateY(0em);
-	opacity: 1;
-}
-
-header {
-	font-family: "Courier New", Courier, monospace;
-}
-.main-nav {
-	background: var(--ak-color-darken);
-	display: flex;
-	justify-content: center;
-	position: fixed;
-	bottom: 0;
-	width: 100%;
-	font-size: 1.5rem;
-	z-index: 10;
-	box-shadow: 0 0 2rem var(--ak-color-darken);
-}
-.main-nav a {
-	height: 4rem;
-	min-width:4rem;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-}
-.main-nav a.icon {
-	aspect-ratio: 1;
-}
-header a {
-	padding: 0 0.5rem;
-	border-bottom: 2px solid transparent;
-	border-radius: 0;
-	transition: 0.5s ease-in-out all;
-}
-header a:hover,
-header a:focus {
-	transition: 0.5s ease-in-out all;
-	background: var(--ak-color-app);
-	border-color: var(--ak-color-accent);
-}
-header a:focus {
-	outline: none;
-}
 
 a.toTop {
 	position: fixed;
@@ -114,7 +34,12 @@ a.toTop {
 	left: calc(50vw + 17.5rem);
 	border-radius:  100%;
 	border: 2px solid currentColor;
+	background: var(--ak-c-surface-1);
 	aspect-ratio: 1;
 	display: flex;
 	text-decoration: none;
+}
+
+main {
+	padding-bottom: 10rem;
 }

@@ -1,55 +1,67 @@
+:root {
+	--mono: "Fira Code", monospace;
+	--serif: "Roboto Slab", serif;
+
+	--body: var(--serif);
+	--title: var(--mono);
+	--code: var(--mono);
+}
+
 body {
-	color: var(--ak-color-text);
-	font-family: Georgia, "Times New Roman", Times, serif;
+	color: var(--ak-c-text-1);
+	font-family: var(--body);
 	font-size: 1.2em;
-	line-height: 1.6;
+	line-height: 1.8;
 	text-rendering: optimizeLegibility;
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
 }
 
 :is(h1, h2, h3, h4, h5, h6) {
-	font-family: 'Courier New', Courier, monospace;
+	font-family: var(--title);
 	font-weight: 700;
-	color: var(--ak-color-contrast);
-	text-shadow: 1px 1px var(--ak-color-darken);
+	color: var(--ak-c-contrast-1);
+	text-shadow: 1px 1px var(--ak-c-surface-3);
+	line-height: 1.1;
 }
+
 article .direct-link {
 	position: absolute;
 	transform: translateX(-1em);
 	opacity: 0.3;
 	text-decoration: none;
 	transition: 0.3s ease-out opacity;
-	color: var(--ak-color-accent);
+	color: var(--ak-c-accent-1);
 }
 
 article .direct-link:focus,
 article .direct-link:hover {
 	opacity: 1;
 	outline: none;
-	color: var(--ak-color-accent);
+	color: var(--ak-c-accent-1);
 }
 a {
-	color: var(--ak-color-accent);
+	color: var(--ak-c-accent-1);
 	border-radius: 0.25em;
 }
 
 a:focus,
 a:hover {
-	color: var(--ak-color-contrast);
+	color: var(--ak-c-contrast-1);
 }
 a:focus {
-	outline: var(--ak-color-contrast) solid 2px;
+	outline: var(--ak-c-contrast-1) solid 2px;
 }
 strong {
-	color: var(--ak-color-accent);
+	color: var(--ak-c-accent-1);
 }
 em {
 	color: var(--ak-color-faded);
 }
 p code {
-	background-color: rgba(255, 255, 255, 0.1);
+	background-color: var(--ak-c-surface-light);
 	padding: 0 0.25em;
 	border-radius: 0.25em;
-	color: white;
+	color: var(--ak-c-text-1);
+	font-family: var(--code);
 }
