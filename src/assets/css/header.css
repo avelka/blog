@@ -1,12 +1,12 @@
 
 nav a {
 	text-decoration: none;
-	color: var(--ak-c-accent);
+	color: var(--ak-c-accent-4);
 }
 
 nav a:hover,
 nav a:focus {
-	color: var(--ak-c-contrast);
+	color: var(--ak-c-contrast-1);
 }
 
 .skip-content {
@@ -49,8 +49,6 @@ nav a:focus {
 	display: flex;
 	justify-content: center;
 	align-items: center;
-
-	text-shadow: 1px 1px var(--ak-c-surface-3);
 }
 
 .main-nav a.icon {
@@ -59,16 +57,15 @@ nav a:focus {
 
 header a {
 	padding: 0 0.5rem;
-	border-bottom: 2px solid transparent;
+	border-top: 5px solid transparent;
 	border-radius: 0;
 	transition: 0.5s ease-in-out all;
-	text-shadow: 1px 1px  var(--ak-c-surface-3);
 }
 header a:hover,
 header a:focus {
 	transition: 0.5s ease-in-out all;
-	background: var(--ak-c-surface-2);
-	border-color: var(--ak-c-accent-1);
+	background: var(--ak-c-surface-4);
+	border-color: var(--ak-c-contrast-1);
 }
 header a:focus {
 	outline: none;

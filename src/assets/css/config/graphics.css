@@ -2,8 +2,8 @@
 	--fleck-seed: 123456;
 	--fleck-count: 250;
 	--fleck-size-base: 15px;
-	--fleck-color-1: var(--ak-c-contrast);
+	--fleck-color-1: var(--ak-c-contrast-1);
 	--fleck-color-2: var(--ak-c-surface-darker);
-	--fleck-color-3: var(--ak-c-accent);
-	--fleck-color-4: var(--ak-c-text);
+	--fleck-color-3: var(--ak-c-accent-1);
+	--fleck-color-4: var(--ak-c-text-1);
 }

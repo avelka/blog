@@ -5,7 +5,7 @@
 }
 
 .ak-tags__item {
-	background-color: var(--ak-c-surface-3);
+	background-color: var(--ak-c-surface-2);
 	padding: 0 0.5em;
 	font-size: small;
 	font-family: var(--code);
