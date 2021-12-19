@@ -22,7 +22,7 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addLayoutAlias("base", "_includes/layouts/base.njk");
 
   eleventyConfig.addFilter("readableDate", dateObj => {
-    return DateTime.fromJSDate(dateObj, { zone: 'utc' }).toFormat("dd LLL yyyy");
+    return DateTime.fromJSDate(dateObj, { zone: 'utc' }).toFormat('dd.LL.yy');
   });
 
   // https://html.spec.whatwg.org/multipage/common-microsyntaxes.html#valid-date-string

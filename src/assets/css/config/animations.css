@@ -1,0 +1,19 @@
+@keyframes fadeIn {
+	from {
+		opacity:0;
+	}
+}
+
+@keyframes landIn {
+	from {
+		opacity:0;
+		transform: translateY(-2rem);
+	}
+	90% {
+		transform: translateY(.125rem);
+	}
+	to {
+		opacity:1;
+		transform: translateY(0);
+	}
+}

@@ -2,20 +2,16 @@
 layout: layouts/base.njk
 templateClass: tmpl-post
 ---
-<a href="/posts/">
-  <span class="material-icons">
-    arrow_left
-  </span>
-</a>
-<article>
- <h1>{{ title }}</h1>
-
-<time datetime="{{ page.date | htmlDateString }}">{{ page.date | readableDate }}</time>
-<div class="ak-tags_list">
-  {%- for tag in tags | filterTagList -%}
-  {%- set tagUrl %}/tags/{{ tag | slug }}/{% endset -%}
-  <a href="{{ tagUrl | url }}" class="ak-tags_list__item">{{ tag }}</a>
-  {%- endfor %}
+<article class="ak-post">
+<h1 class="ak-post__title">{{ title }}</h1>
+<div class="ak-meta">
+  <time class="ak-meta__time" datetime="{{ page.date | htmlDateString }}">{{ page.date | readableDate }}</time>
+  <div class="ak-tags">
+    {%- for tag in tags | filterTagList -%}
+    {%- set tagUrl %}/tags/{{ tag | slug }}/{% endset -%}
+    <a href="{{ tagUrl | url }}" class="ak-tags__item">{{ tag }}</a>
+    {%- endfor %}
+  </div>
 </div>
 
 {{ content | safe }}

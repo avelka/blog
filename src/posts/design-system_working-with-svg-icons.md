@@ -2,7 +2,7 @@
 
 title:  'Design System: Working with Icons and SVG'
 date:   2021-12-12
-tags: ['Design System', 'Icons', 'Ui/Ux']
+tags: ['SVG', 'Design System', 'Icons', 'Ui/Ux', 'DeveloperExperience', 'DX', 'Front-End']
 layout: layouts/post.njk
 		
 ---
