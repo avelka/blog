@@ -21,13 +21,14 @@ body {
 	font-family: var(--title);
 	font-weight: 700;
 	color: var(--ak-c-contrast-1);
-	text-shadow: 1px 1px var(--ak-c-surface-3);
+	/* text-shadow: 1px 1px var(--ak-c-surface-3); */
 	line-height: 1.1;
 }
 
 article .direct-link {
 	position: absolute;
-	transform: translateX(-1em);
+	transform: translateX(-1rem);
+	text-align: end;
 	opacity: 0.3;
 	text-decoration: none;
 	transition: 0.3s ease-out opacity;
