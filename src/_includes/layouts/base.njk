@@ -5,7 +5,7 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<title>{{ title or metadata.title }}</title>
 		<meta name="description" content="{{ description or metadata.description }}">
-		<script type="module" src="{{ '/assets/js/i_want_to_be_an_artist.js' | url }}"></script>
+		
 		<link rel="preconnect" href="https://fonts.googleapis.com">
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 		<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -19,7 +19,8 @@
 		<link rel="alternate" href="{{ metadata.feed.path | url }}" type="application/atom+xml" title="{{ metadata.title }}">
 		<link rel="alternate" href="{{ metadata.jsonfeed.path | url }}" type="application/json" title="{{ metadata.title }}">
 
-		<script type="module" src="{{ '/assets/js/theme-switch.js' | url }}"></script>
+		<script defer type="module" src="{{ '/assets/js/i_want_to_be_an_artist.js' | url }}"></script>
+		<script defer type="module" src="{{ '/assets/js/theme-switch.js' | url }}"></script>
 	</head>
 	<body>
 		<div class="fleck-pattern"></div>
@@ -29,10 +30,11 @@
 				<a href="#main-content">content</a>
 			</nav>
 			<form id="theme-switcher">
-			<label>
-				<input  type="checkbox" name="theme" />
-				switch theme
-			</label>
+				<label class="ak-switch" for="dark">
+					<input id="dark" type="checkbox" name="theme" class="sr-only" />
+					<span data-state="off" aria-label="ligth-theme">☀️</span>
+					<span data-state="on" aria-label="dark-theme">🌒&nbsp;</span>
+				</label>
 			</form>
 			<nav class="main-nav" id="main-navigation">
 				<a href="/" class="home logo">a.k</a>

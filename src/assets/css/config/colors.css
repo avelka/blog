@@ -19,8 +19,8 @@
 	--pv-surface: var(--pv-surface-hue) var(--pv-surface-saturation);
 	--ak-c-surface-1: hsl(var(--pv-surface) calc(var(--pv-surface-lightness) * 1.6));
 	--ak-c-surface-2: hsl(var(--pv-surface) calc(var(--pv-surface-lightness) * 1.5));
-	--ak-c-surface-3: hsl(var(--pv-surface) calc(var(--pv-surface-lightness) * 0.2));
-	--ak-c-surface-4: hsl(var(--pv-surface) calc(var(--pv-surface-lightness) * 0.15));
+	--ak-c-surface-3: hsl(var(--pv-surface) calc(var(--pv-surface-lightness) * 0.15));
+	--ak-c-surface-4: hsl(var(--pv-surface) calc(var(--pv-surface-lightness) * 0.1));
 
 	--pv-text: var(--pv-text-hue) var(--pv-text-saturation);
 	--ak-c-text-1: hsl(var(--pv-text) calc(var(--pv-text-lightness) * 1.5));
@@ -58,9 +58,11 @@
 [color-scheme="dark"] {
 	color-scheme: dark;
 --pv-surface-saturation: 20%;
---pv-surface-lightness: 5%;
---ak-c-surface-2: hsl(var(--pv-surface) calc(var(--pv-surface-lightness) * 2));
---ak-c-surface-4: hsl(var(--pv-surface) calc(var(--pv-surface-lightness) * 0.5));
+--pv-surface-lightness: 10%;
+--ak-c-surface-1: hsl(var(--pv-surface) calc(var(--pv-surface-lightness) * 0.75));
+--ak-c-surface-2: hsl(var(--pv-surface) calc(var(--pv-surface-lightness) * 1));
+--ak-c-surface-3: hsl(var(--pv-surface) calc(var(--pv-surface-lightness) * 0.5));
+--ak-c-surface-4: hsl(var(--pv-surface) calc(var(--pv-surface-lightness) * 1.25));
 
 --pv-text-lightness: 80%;
 --pv-accent-lightness: 50%;
@@ -90,8 +92,8 @@
 	--pv-surface: var(--pv-surface-hue) var(--pv-surface-saturation);
 	--ak-c-surface-1: hsl(var(--pv-surface) calc(var(--pv-surface-lightness) * 1.6));
 	--ak-c-surface-2: hsl(var(--pv-surface) calc(var(--pv-surface-lightness) * 1.5));
-	--ak-c-surface-3: hsl(var(--pv-surface) calc(var(--pv-surface-lightness) * 0.2));
-	--ak-c-surface-4: hsl(var(--pv-surface) calc(var(--pv-surface-lightness) * 0.15));
+	--ak-c-surface-3: hsl(var(--pv-surface) calc(var(--pv-surface-lightness) * 0.15));
+	--ak-c-surface-4: hsl(var(--pv-surface) calc(var(--pv-surface-lightness) * 0.1));
 
 	--pv-text: var(--pv-text-hue) var(--pv-text-saturation);
 	--ak-c-text-1: hsl(var(--pv-text) calc(var(--pv-text-lightness) * 1.5));
