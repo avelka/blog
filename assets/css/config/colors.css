@@ -1,7 +1,7 @@
 :root {
 	color-scheme: light;
 	--pv-surface-hue: 30;
-	--pv-surface-saturation: 90%;
+	--pv-surface-saturation: 60%;
 	--pv-surface-lightness: 60%;
 
 	--pv-text-hue: 35;
@@ -17,10 +17,10 @@
 	--pv-contrast-lightness: 85%;
 
 	--pv-surface: var(--pv-surface-hue) var(--pv-surface-saturation);
-	--ak-c-surface-1: hsl(var(--pv-surface) calc(var(--pv-surface-lightness) * 1.25));
-	--ak-c-surface-2: hsl(var(--pv-surface) calc(var(--pv-surface-lightness) * 1.2));
-	--ak-c-surface-3: hsl(var(--pv-surface) calc(var(--pv-surface-lightness) * 0.1));
-	--ak-c-surface-4: hsl(var(--pv-surface) calc(var(--pv-surface-lightness) * 0.2));
+	--ak-c-surface-1: hsl(var(--pv-surface) calc(var(--pv-surface-lightness) * 1.6));
+	--ak-c-surface-2: hsl(var(--pv-surface) calc(var(--pv-surface-lightness) * 1.5));
+	--ak-c-surface-3: hsl(var(--pv-surface) calc(var(--pv-surface-lightness) * 0.15));
+	--ak-c-surface-4: hsl(var(--pv-surface) calc(var(--pv-surface-lightness) * 0.1));
 
 	--pv-text: var(--pv-text-hue) var(--pv-text-saturation);
 	--ak-c-text-1: hsl(var(--pv-text) calc(var(--pv-text-lightness) * 1.5));
@@ -39,7 +39,6 @@
 	--ak-c-contrast-2: hsl(var(--pv-contrast) calc(var(--pv-contrast-lightness) * 0.75));
 	--ak-c-contrast-3: hsl(var(--pv-contrast) calc(var(--pv-contrast-lightness) * 0.5));
 	--ak-c-contrast-4: hsl(var(--pv-contrast) calc(var(--pv-contrast-lightness) * 1.25));
-
 }
 
 @media (prefers-color-scheme: dark) {
@@ -51,7 +50,66 @@
 		--ak-c-surface-4: hsl(var(--pv-surface) calc(var(--pv-surface-lightness) * 0.5));
 
 		--pv-text-lightness: 80%;
-		--pv-accent-lightness: 80%;
+		--pv-accent-lightness: 50%;
+		--ak-c-accent-4: hsl(var(--pv-accent) calc(var(--pv-accent-lightness) * 1));
 		--pv-contrast-lightness: 80%;
 	}
+}
+[color-scheme="dark"] {
+	color-scheme: dark;
+--pv-surface-saturation: 20%;
+--pv-surface-lightness: 10%;
+--ak-c-surface-1: hsl(var(--pv-surface) calc(var(--pv-surface-lightness) * 0.75));
+--ak-c-surface-2: hsl(var(--pv-surface) calc(var(--pv-surface-lightness) * 1));
+--ak-c-surface-3: hsl(var(--pv-surface) calc(var(--pv-surface-lightness) * 0.5));
+--ak-c-surface-4: hsl(var(--pv-surface) calc(var(--pv-surface-lightness) * 1.25));
+
+--pv-text-lightness: 80%;
+--pv-accent-lightness: 50%;
+--ak-c-accent-4: hsl(var(--pv-accent) calc(var(--pv-accent-lightness) * 1));
+--pv-contrast-lightness: 80%;
+}
+
+
+[color-scheme="light"] {
+	color-scheme: light;
+	--pv-surface-hue: 30;
+	--pv-surface-saturation: 60%;
+	--pv-surface-lightness: 60%;
+
+	--pv-text-hue: 35;
+	--pv-text-saturation: 35%;
+	--pv-text-lightness: 10%;
+
+	--pv-accent-hue: 180;
+	--pv-accent-saturation: 70%;
+	--pv-accent-lightness: 35%;
+
+	--pv-contrast-hue: 350;
+	--pv-contrast-saturation: 80%;
+	--pv-contrast-lightness: 85%;
+
+	--pv-surface: var(--pv-surface-hue) var(--pv-surface-saturation);
+	--ak-c-surface-1: hsl(var(--pv-surface) calc(var(--pv-surface-lightness) * 1.6));
+	--ak-c-surface-2: hsl(var(--pv-surface) calc(var(--pv-surface-lightness) * 1.5));
+	--ak-c-surface-3: hsl(var(--pv-surface) calc(var(--pv-surface-lightness) * 0.15));
+	--ak-c-surface-4: hsl(var(--pv-surface) calc(var(--pv-surface-lightness) * 0.1));
+
+	--pv-text: var(--pv-text-hue) var(--pv-text-saturation);
+	--ak-c-text-1: hsl(var(--pv-text) calc(var(--pv-text-lightness) * 1.5));
+	--ak-c-text-2: hsl(var(--pv-text) calc(var(--pv-text-lightness) * 1.25));
+	--ak-c-text-3: hsl(var(--pv-text) var(--pv-text-lightness));
+	--ak-c-text-4: hsl(var(--pv-text) calc(var(--pv-text-lightness) * 0.75));
+
+	--pv-accent: var(--pv-accent-hue) var(--pv-accent-saturation);
+	--ak-c-accent-1: hsl(var(--pv-accent) calc(var(--pv-accent-lightness) * 0.75));
+	--ak-c-accent-2: hsl(var(--pv-accent) calc(var(--pv-accent-lightness) * 0.75));
+	--ak-c-accent-3: hsl(var(--pv-accent) calc(var(--pv-accent-lightness) * 0.5));
+	--ak-c-accent-4: hsl(var(--pv-accent) calc(var(--pv-accent-lightness) * 1.25));
+
+	--pv-contrast: var(--pv-contrast-hue) var(--pv-contrast-saturation);
+	--ak-c-contrast-1: hsl(var(--pv-contrast) calc(var(--pv-contrast-lightness) * 0.75));
+	--ak-c-contrast-2: hsl(var(--pv-contrast) calc(var(--pv-contrast-lightness) * 0.75));
+	--ak-c-contrast-3: hsl(var(--pv-contrast) calc(var(--pv-contrast-lightness) * 0.5));
+	--ak-c-contrast-4: hsl(var(--pv-contrast) calc(var(--pv-contrast-lightness) * 1.25));
 }

@@ -5,19 +5,22 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<title>Ux Journey: Link</title>
 		<meta name="description" content="I am writing about my experiences as a naval navel-gazer.">
-		<script src="/assets/js/i_want_to_be_an_artist.js"></script>
+		
 		<link rel="preconnect" href="https://fonts.googleapis.com">
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 		<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
 		<link href="https://fonts.googleapis.com/css2?family=Bitter&family=Fira+Code&family=Noto+Serif&display=swap" rel="stylesheet">
-		
+
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer"/>
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/plugins/toolbar/prism-toolbar.min.css" integrity="sha512-ycl7dIZ0VJ5535/dzskAMTwOI6OoTNZ3PeD+tfckvYqMmAzaEwQfJHqJTSqcV2iQeJnp5XxnFy5jKotibstp7A==" crossorigin="anonymous" referrerpolicy="no-referrer"/>
 
 		<link rel="stylesheet" href="/assets/css/styles.css">
 		<link rel="alternate" href="/feed/feed.xml" type="application/atom+xml" title="Your Blog Name">
 		<link rel="alternate" href="/feed/feed.json" type="application/json" title="Your Blog Name">
+
+		<script defer type="module" src="/assets/js/i_want_to_be_an_artist.js"></script>
+		<script defer type="module" src="/assets/js/theme-switch.js"></script>
 	</head>
 	<body>
 		<div class="fleck-pattern"></div>
@@ -26,6 +29,13 @@
 				<a href="#main-navigation">menu</a>
 				<a href="#main-content">content</a>
 			</nav>
+			<form id="theme-switcher">
+				<label class="ak-switch" for="dark">
+					<input id="dark" type="checkbox" name="theme" class="sr-only" />
+					<span data-state="off" aria-label="ligth-theme">☀️</span>
+					<span data-state="on" aria-label="dark-theme">🌒&nbsp;</span>
+				</label>
+			</form>
 			<nav class="main-nav" id="main-navigation">
 				<a href="/" class="home logo">a.k</a>
 				<a href="/posts/" class="icon">
