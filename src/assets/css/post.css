@@ -15,23 +15,22 @@
 
 .ak-posts {
 	display: flex;
-
+	padding:0;
 	flex-direction: column;
 	gap: 1rem;
 }
 
 .ak-posts__item {
 	list-style-type: none;
+	margin:0;
 	padding: 1rem;
-	background: var(--ak-c-surface-3);
 }
 
 .ak-post__link {
 	display: block;
 	font-family: var(--title);
 	font-weight: 700;
-	color: var(--ak-c-contrast-3);
-	text-shadow: 1px 1px var(--ak-c-surface-3);
+	color: var(--ak-c-contrast-1);
 	line-height: 1.1;
 	text-decoration: none;
 }
@@ -51,6 +50,4 @@ time {
 	font-size: .8rem;
 	font-weight: bold;
 }
-.ak-posts__item .ak-tags__item {
-	background-color: var(--ak-c-surface-1);
-}
+

@@ -1,18 +1,19 @@
 const switcher = document.querySelector('#theme-switcher')
 const doc = document.firstElementChild;
 const darkModeMediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
-const toggleDarkTheme = dark => {
-  switcher.querySelector('#dark').checked = dark;
-  doc.setAttribute('color-scheme',  dark ? "dark" : "light");
+const toggleDarkTheme = (dark, persist = true) => {
+
+  if (persist) {
+    localStorage.setItem('dark-mode', dark);
+  }
+  const isDarkModeEnabled = localStorage.getItem('dark-mode') == 'true';
+  switcher.querySelector('#dark').checked = isDarkModeEnabled;
+  const theme = isDarkModeEnabled ? "dark" : "light";
+  doc.setAttribute('color-scheme', theme);
 }
 
-darkModeMediaQuery.onChange = ((e) => {
-  const darkModeOn = e.matches;
-  console.log(`Dark mode is ${darkModeOn ? '🌒 on' : '☀️ off'}.`);
-});
 
-console.log(doc, darkModeMediaQuery);
-toggleDarkTheme(darkModeMediaQuery.matches);
+toggleDarkTheme(darkModeMediaQuery.matches, false);
 switcher.addEventListener('input', e =>
-toggleDarkTheme(e.target.checked))
+  toggleDarkTheme(e.target.checked))
 
