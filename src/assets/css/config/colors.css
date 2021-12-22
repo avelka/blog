@@ -61,7 +61,7 @@
 --pv-surface-lightness: 10%;
 --ak-c-surface-1: hsl(var(--pv-surface) calc(var(--pv-surface-lightness) * 0.75));
 --ak-c-surface-2: hsl(var(--pv-surface) calc(var(--pv-surface-lightness) * 1));
---ak-c-surface-3: hsl(var(--pv-surface) calc(var(--pv-surface-lightness) * 0.5));
+--ak-c-surface-3: hsl(var(--pv-surface) calc(var(--pv-surface-lightness) * 1.5));
 --ak-c-surface-4: hsl(var(--pv-surface) calc(var(--pv-surface-lightness) * 1.25));
 
 --pv-text-lightness: 80%;

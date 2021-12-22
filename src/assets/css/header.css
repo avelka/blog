@@ -1,4 +1,3 @@
-
 nav a {
 	text-decoration: none;
 	color: var(--ak-c-accent-4);
@@ -37,15 +36,25 @@ nav a:focus {
 	justify-content: center;
 	position: fixed;
 	bottom: 0;
-	width: 100%;
+	left: 0;
+	right: 0;
 	font-size: 1.5rem;
 	z-index: 10;
 	box-shadow: 0 0 2rem var(--ak-c-surface-3);
 }
+@media screen and (min-width: 53rem) {
+	.main-nav {
+		bottom: auto;
+		right: auto;
+		width: auto;
+		flex-direction: column;
+		left: calc(50vw - 27rem);
+	}
+}
 
 .main-nav a {
 	height: 4rem;
-	min-width:4rem;
+	min-width: 4rem;
 	display: flex;
 	justify-content: center;
 	align-items: center;
