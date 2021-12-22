@@ -55,14 +55,21 @@
 		<main id="main-content"  class="tmpl-post">
 
 			<article class="ak-post">
-<h1 class="ak-post__title">Design System: Working with Icons and SVG</h1>
-<div class="ak-meta">
-  <time class="ak-meta__time" datetime="2021-12-12">12.12.21</time>
-  <div class="ak-tags"><a href="/tags/svg/" class="ak-tags__item">SVG</a><a href="/tags/design-system/" class="ak-tags__item">Design System</a><a href="/tags/icons/" class="ak-tags__item">Icons</a><a href="/tags/uiux/" class="ak-tags__item">Ui/Ux</a><a href="/tags/developerexperience/" class="ak-tags__item">DeveloperExperience</a><a href="/tags/dx/" class="ak-tags__item">DX</a><a href="/tags/front-end/" class="ak-tags__item">Front-End</a>
+  <h1 class="ak-post__title">Design System: Working with Icons and SVG</h1>
+  <div class="ak-meta">
+    <time class="ak-meta__time" datetime="2021-12-12">12.12.21</time>
+    <div class="ak-tags"><a href="/tags/svg/" class="ak-tags__item">SVG</a><a href="/tags/design-system/" class="ak-tags__item">Design System</a><a href="/tags/icons/" class="ak-tags__item">Icons</a><a href="/tags/uiux/" class="ak-tags__item">Ui/Ux</a><a href="/tags/developerexperience/" class="ak-tags__item">DeveloperExperience</a><a href="/tags/dx/" class="ak-tags__item">DX</a><a href="/tags/front-end/" class="ak-tags__item">Front-End</a>
+    </div>
   </div>
-</div>
-
-<h2 id="what-is-svg" tabindex="-1"><a class="direct-link" href="#what-is-svg" aria-hidden="true">#</a> What is SVG?</h2>
+  <aside>
+    <details>
+        <summary>Table of content</summary>
+    <nav class="toc" >
+        <ol><li><a href="#what-is-svg"># What is SVG?</a><ol><li><a href="#vector-and-bitmap"># Vector and bitmap</a></li><li><a href="#xml"># XML</a></li></ol></li><li><a href="#how-icons-are-created"># How icons are created</a><ol><li><a href="#design-principle"># Design principle</a></li><li><a href="#tools"># Tools</a></li></ol></li><li><a href="#where-to-used-icons"># Where to used icons</a><ol><li><a href="#standalone"># standalone</a></li><li><a href="#text-buttons"># Text buttons</a></li><li><a href="#input"># Input</a></li><li><a href="#link"># Link</a></li></ol></li><li><a href="#handoff-to-bundle"># Handoff to Bundle</a><ol><li><a href="#cleanup"># Cleanup</a></li><li><a href="#export"># Export</a></li><li><a href="#optimization"># Optimization</a></li></ol></li><li><a href="#usage"># Usage</a><ol><li><a href="#within-images-tag"># Within images tag</a></li><li><a href="#inline-as-svg-tag"># Inline as SVG tag</a></li><li><a href="#inline-and-sprite"># Inline and sprite</a></li></ol></li><li><a href="#miscellaneous-tips"># Miscellaneous tips</a></li></ol>
+      </nav>
+    </details>
+  </aside>
+  <h2 id="what-is-svg" tabindex="-1"><a class="direct-link" href="#what-is-svg" aria-hidden="true">#</a> What is SVG?</h2>
 <p>Lorem ipsum <code>dolor sit amet</code>, consectetur adipiscing elit. Vestibulum aliquam magna a diam imperdiet, vel tincidunt est maximus. Vivamus cursus tellus felis, ut venenatis diam pharetra vitae. Quisque posuere ligula libero, id fringilla ex viverra in. Nulla lobortis dapibus ipsum in finibus. Donec vitae pulvinar purus, vitae convallis nisl. Suspendisse ut tortor suscipit, ultricies velit nec, tincidunt erat. Mauris feugiat efficitur neque quis vulputate. Integer eget euismod dolor, nec feugiat nulla. In vitae ex commodo, euismod velit vitae, aliquam est. Proin scelerisque mauris sit amet dictum dictum. Maecenas elementum lectus sed mauris congue, sit amet vulputate leo pharetra. Morbi eleifend nisl vitae neque rutrum fermentum. Phasellus at blandit ipsum, sit amet sodales lectus.</p>
 <p>Suspendisse commodo nulla dolor, nec suscipit augue convallis non. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nunc non turpis finibus metus condimentum aliquam. Aenean vel ligula enim. Pellentesque quam dui, porttitor sit amet cursus a, mattis at augue. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Praesent id risus ipsum. Mauris a blandit lectus, eu malesuada augue. Quisque viverra lectus et bibendum efficitur. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Sed vestibulum vehicula nunc. Phasellus et dui ligula.</p>
 <h3 id="vector-and-bitmap" tabindex="-1"><a class="direct-link" href="#vector-and-bitmap" aria-hidden="true">#</a> Vector and bitmap</h3>
@@ -126,10 +133,14 @@
 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum aliquam magna a diam imperdiet, vel tincidunt est maximus. Vivamus cursus tellus felis, ut venenatis diam pharetra vitae. Quisque posuere ligula libero, id fringilla ex viverra in. Nulla lobortis dapibus ipsum in finibus. Donec vitae pulvinar purus, vitae convallis nisl. Suspendisse ut tortor suscipit, ultricies velit nec, tincidunt erat. Mauris feugiat efficitur neque quis vulputate. Integer eget euismod dolor, nec feugiat nulla. In vitae ex commodo, euismod velit vitae, aliquam est. Proin scelerisque mauris sit amet dictum dictum. Maecenas elementum lectus sed mauris congue, sit amet vulputate leo pharetra. Morbi eleifend nisl vitae neque rutrum fermentum. Phasellus at blandit ipsum, sit amet sodales lectus.</p>
 <p>Suspendisse commodo nulla dolor, nec suscipit augue convallis non. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nunc non turpis finibus metus condimentum aliquam. Aenean vel ligula enim. Pellentesque quam dui, porttitor sit amet cursus a, mattis at augue. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Praesent id risus ipsum. Mauris a blandit lectus, eu malesuada augue. Quisque viverra lectus et bibendum efficitur. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Sed vestibulum vehicula nunc. Phasellus et dui ligula.</p>
 
-<hr>
-<ul><li>Previous: <a href="/posts/second-post/">11ty is awesome</a></li>
-</ul>
+      <hr>
+      <ul>
+          <li>Previous: <a href="/posts/second-post/">11ty is awesome</a>
+          </li>
+        
+      </ul>
 </article>
+
 		</main>
 		<a class="floatBtn toTop" href="#">
 			<span class="material-icons">
