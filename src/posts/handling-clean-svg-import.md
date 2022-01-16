@@ -72,7 +72,7 @@ There is little chance you need to use this attribute if you keep your SVG viewp
 I hope the part above was enough to have a simple understanding of how SVG can behave. However I only scratched the surface. Fortunately, 
 Sara Soueidan did an amazing job explaining in depth the theme is her series ["Understanding SVG Coordinate Systems and Transformations"](https://www.sarasoueidan.com/blog/svg-coordinate-systems/) (All articles are listed separately at the end of this page)
 
-## Clean an optimise the code
+## Manuall optimisations
 
 Now that we covered some basis, let's dive into SVG syntax.
 The asset source play a important role in the state your file is when you receive it.
