@@ -65,7 +65,7 @@
     <details>
         <summary>Table of content</summary>
     <nav class="toc" >
-        <ol><li><a href="#layout"># Layout</a><ol><li><a href="#viewbox"># ViewBox</a><ol><li><a href="#points-of-cautions:"># Points of cautions:</a></li></ol></li><li><a href="#height-and-width:"># Height and Width:</a></li><li><a href="#preserveaspectratio"># preserveAspectRatio</a></li><li><a href="#going-further-with-layout"># Going further with Layout</a></li></ol></li><li><a href="#manuall-optimisations"># Manuall optimisations</a><ol><li><a href="#namespaces"># Namespaces</a><ol><li><a href="#svg"># SVG</a></li><li><a href="#xlink"># xlink</a></li><li><a href="#xml-events-and-others"># xml-events and others</a></li></ol></li><li><a href="#useless-elements"># Useless elements</a><ol><li><a href="#group-tag-lessggreater"># Group tag &lt;g&gt;</a></li></ol></li><li><a href="#ignored-attributes"># Ignored attributes</a></li><li><a href="#inheritance-conflict"># Inheritance conflict</a></li><li><a href="#useless-clipping"># Useless Clipping</a></li></ol></li><li><a href="#other-resources"># Other resources</a><ol><li><a href="#specification-and-documentation"># Specification and Documentation</a></li><li><a href="#deep-look-at-the-chore"># Deep look at the Chore</a></li><li><a href="#clever-tricks"># Clever tricks</a></li><li><a href="#video-and-podcast"># Video and podcast</a></li><li><a href="#compatibility"># Compatibility</a></li><li><a href="#performance"># Performance</a></li></ol></li></ol>
+        <ol><li><a href="#layout"># Layout</a><ol><li><a href="#viewbox"># ViewBox</a></li><li><a href="#height-and-width:"># Height and Width:</a></li><li><a href="#preserveaspectratio"># preserveAspectRatio</a></li><li><a href="#points-of-cautions:"># Points of cautions:</a></li><li><a href="#going-further-with-layout"># Going further with Layout</a></li></ol></li><li><a href="#manual-optimisations"># Manual optimisations</a><ol><li><a href="#namespaces"># Namespaces</a><ol><li><a href="#svg"># SVG</a></li><li><a href="#xlink"># xlink</a></li><li><a href="#xml-events-and-others"># xml-events and others</a></li></ol></li><li><a href="#useless-elements"># Useless elements</a><ol><li><a href="#group-tag-lessggreater"># Group tag &lt;g&gt;</a></li></ol></li><li><a href="#ignored-attributes"># Ignored attributes</a></li><li><a href="#inheritance-conflict"># Inheritance conflict</a></li><li><a href="#useless-clipping"># Useless Clipping</a></li><li><a href="#automatic-or-programmatic-optimization"># Automatic or programmatic optimization</a><ol><li><a href="#svgo"># SVGO</a></li><li><a href="#svgomg"># SVGOMG</a></li><li><a href="#svgr"># SVGR</a></li></ol></li></ol></li><li><a href="#accessibility"># Accessibility</a></li><li><a href="#conclusion"># Conclusion</a></li><li><a href="#other-resources"># Other resources</a><ol><li><a href="#specification-and-documentation"># Specification and Documentation</a></li><li><a href="#deep-look-at-the-core"># Deep look at the Core</a></li><li><a href="#clever-tricks"># Clever tricks</a></li><li><a href="#video-and-podcast"># Video and podcast</a></li><li><a href="#compatibility"># Compatibility</a></li><li><a href="#performance"># Performance</a></li><li><a href="#day-to-day-svg-usecases"># Day to Day SVG usecases</a></li><li><a href="#accessibility-1"># Accessibility</a></li></ol></li></ol>
       </nav>
     </details>
   </aside>
@@ -93,7 +93,17 @@
 Describe the origin of the SVG grid. Most of the we want to keep them at <code>0</code> as it make math easier, but this can still be useful for animation or SVG <em>sprites</em>. Sara article, linked at the end of this article explore this aspect in depth.</p>
 <p><code>width</code> and <code>height</code><br>
 They are pretty much what we can expect, with one important point: they are unitless, they are not related to any pixel convention. That said, they often use the sames value as the expected size in the final document. This is purely for convenience: you should choose the values for readability making the math inside the SVG easier, in case you plan to animate the svg later. In most cases for simple elements, for example icons, you should keep the coordinate systems in sync with the design expectation.</p>
-<h4 id="points-of-cautions:" tabindex="-1"><a class="direct-link" href="#points-of-cautions:" aria-hidden="true">#</a> Points of cautions:</h4>
+<h3 id="height-and-width:" tabindex="-1"><a class="direct-link" href="#height-and-width:" aria-hidden="true">#</a> Height and Width:</h3>
+<p>This pair of attributes is sometime referred to as viewport, not to confuse with <code>viewBox</code> or the browser window viewport. The height and width attribute of the svg element define how the svg viewport will be sized on the screen: the size it will be drawn to. Contrary to the height and width values of the <code>viewBox</code> attribute, we are dealing with units here. You do not have to use one, in which case it will probably resolve to <code>px</code>. Other possible values are the same as the one defined in CSS (em, ex, px, pt, pc, cm, mm, in and percentages).<br>
+Those attributes are not mandatory and will default to the value <code>auto</code>, which is equivalent to <code>100%</code>.</p>
+<p>To keep thing generic you will probably skip those values when working with components and rely on CSS or props to suit your need depending on the context.</p>
+<h3 id="preserveaspectratio" tabindex="-1"><a class="direct-link" href="#preserveaspectratio" aria-hidden="true">#</a> preserveAspectRatio</h3>
+<p><a href="https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/preserveAspectRatio">MDN, preserveAspectRatio</a><br>
+If you read the points above, you may have realised that it is possible that the ratio expressed by the <code>viewBox</code> is different from the one defined by the given <code>height</code> and <code>width</code> attributes. <code>preserveAspectRatio</code> let you define how the <code>viewBox</code> will fill the viewport (<code>height</code> and <code>width</code>, remember). It is kind of the older brother of the css <code>object-fit</code> property: the syntax is a bit more rough and also let you manage the origin of scaling transformation applied.</p>
+<pre class="language-svg"><code class="language-svg"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>svg</span> <span class="token attr-name">preserveAspectRatio</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>&lt;align> [&lt;meetOrSlice>]<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>...<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>svg</span><span class="token punctuation">></span></span><br></code></pre>
+<p><code>&lt;align&gt;</code> is a string values compose of alignment type (Min, Mid, Max) for both axis (x, Y) like the following examples: <code>xMidYMax</code> or <code>xMaxYMin</code> or the value <code>none</code>.</p>
+<p>There is little chance you need to use this attribute if you keep your SVG viewport in sync with its viewBox, however in more complex scenario, it can become handy to use them.</p>
+<h3 id="points-of-cautions:" tabindex="-1"><a class="direct-link" href="#points-of-cautions:" aria-hidden="true">#</a> Points of cautions:</h3>
 <p>SVG are scalable but it does not solve everything.</p>
 <ul>
 <li>
@@ -102,53 +112,63 @@ They are pretty much what we can expect, with one important point: they are unit
 <li>
 <p>Graphics are designed with a certain size in mind. Even if it can scale nicely and adapt to different resolution properly, deviating from the original intent can make it less relevant. If it is scaled down, some details may not be visible anymore. On the opposite side, a small and simple icon can be pertinent at small size, but be pretty boring if scaled too much. Do not expect miracle and use separate graphics when necessary. There is some smart solutions leveraging media-query that you could explore, you can find related links in the resources section.</p>
 </li>
+<li>
+<p>Not providing a viewBox property nor width and height will result in something similar to a viewBox of <code>0 0 300 150</code> and the same value for the <code>width</code> and <code>height</code> attributes. The svg will keep his size independently from the parent layout.</p>
+</li>
 </ul>
-<h3 id="height-and-width:" tabindex="-1"><a class="direct-link" href="#height-and-width:" aria-hidden="true">#</a> Height and Width:</h3>
-<p>This pair of attributes is sometime referred to as viewport, not to confuse with <code>viewBox</code> or the browser window viewport. The height and width attribute of the svg element define how the svg viewport will be sized on the screen: the size it will be drawn to. Contrary to the height and width values of the <code>viewBox</code> attribute, we are dealing with units here. You do not have to use one, in which case it will probably resolve to <code>px</code>. Other possible values are the same as the one defined in CSS (em, ex, px, pt, pc, cm, mm, in and percentages).<br>
-Those attributes are not mandatory and will default to the value <code>auto</code>, which is equivalent to <code>100%</code>.</p>
-<p>To keep thing generic you will probably skip those values when working with components and rely on CSS or props to suit your need depending on the context.</p>
-<h3 id="preserveaspectratio" tabindex="-1"><a class="direct-link" href="#preserveaspectratio" aria-hidden="true">#</a> preserveAspectRatio</h3>
-<p><a href="https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/preserveAspectRatio">MDN, preserveAspectRatio</a><br>
-If you read the points above, you may have realised that it is possible that the ratio expressed by the <code>viewBox</code> is different from the one defined by the given <code>height</code> and <code>width</code> attributes. <code>preserveAspectRatio</code> let you define how the <code>viewBox</code> will fill the viewport (<code>height</code> and <code>width</code>, remember). It is kinf of the older brother of the css <code>object-fit</code> property: the syntax is a bit more rough and also let you manage the origin of scaling transformation applied.</p>
-<pre class="language-svg"><code class="language-svg"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>svg</span> <span class="token attr-name">preserveAspectRatio</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>&lt;align> [&lt;meetOrSlice>]<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>...<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>svg</span><span class="token punctuation">></span></span><br></code></pre>
-<p><code>&lt;align&gt;</code> is a string values compose of alignment type (Min, Mid, Max) for both axis (x, Y) like the following examples: <code>xMidYMax</code> or <code>xMaxYMin</code> or the value <code>none</code>.</p>
-<p>There is little chance you need to use this attribute if you keep your SVG viewport in sync with its viewBox, however in more complex scenario, it can become handy to use them.</p>
+<div style="overflow: hidden; resize: both;">
+<svg>
+ <rect x="0" y="0" 
+ width="600" 
+ height="200" 
+ style="fill: var(--ak-c-accent-1)"/>
+ <circle cx="50" cy="50" r="50" style="fill: var(--ak-c-contrast-1)"/>
+</svg>
+<svg viewBox="0 0 300 150">
+ <rect x="0" y="0" 
+ width="600" 
+ height="300" 
+ style="fill: var(--ak-c-accent-1)"/>
+ <circle cx="50" cy="50" r="50" style="fill: var(--ak-c-contrast-1)"/>
+</svg>
+</div>
+<small> the above container is `resizable`</small>
+<p>Providing the same values directly will let the svg take all of its container available space: height and width default work in this situation like they were <code>100%</code>.</p>
 <h3 id="going-further-with-layout" tabindex="-1"><a class="direct-link" href="#going-further-with-layout" aria-hidden="true">#</a> Going further with Layout</h3>
 <p>I hope the part above was enough to have a simple understanding of how SVG can behave. However I only scratched the surface. Fortunately,<br>
 Sara Soueidan did an amazing job explaining in depth the theme is her series <a href="https://www.sarasoueidan.com/blog/svg-coordinate-systems/">&quot;Understanding SVG Coordinate Systems and Transformations&quot;</a> (All articles are listed separately at the end of this page)</p>
-<h2 id="manuall-optimisations" tabindex="-1"><a class="direct-link" href="#manuall-optimisations" aria-hidden="true">#</a> Manuall optimisations</h2>
+<h2 id="manual-optimisations" tabindex="-1"><a class="direct-link" href="#manual-optimisations" aria-hidden="true">#</a> Manual optimisations</h2>
 <p>Now that we covered some basis, let's dive into SVG syntax.<br>
 The asset source play a important role in the state your file is when you receive it.<br>
-Each editor have their own quirks. I think especially about Inkscape where SVG is the raw format for working file. That may sound great, but it make (made?, I will have to verify, they probably improved since I last checked) the SVG bloated with Inkscape specific shenanigans (private namespaces). Other artefacts may have been added by the designer for convenience, but are no longer useful on production ready assets.</p>
-<p>I am currently exposed to Figma export, so some weirdness may be specific to this specific design tool.</p>
+Each editor have their own quirks. I think especially about Inkscape where SVG is the raw format for working file. That may sound great, but it make (made?, I will have to verify, they probably improved since I last checked) the SVG bloated with Inkscape specific shenanigans (private namespaces). Other artefact may have been added by the designer for convenience, but are no longer useful on production ready assets.</p>
 <h3 id="namespaces" tabindex="-1"><a class="direct-link" href="#namespaces" aria-hidden="true">#</a> Namespaces</h3>
 <h4 id="svg" tabindex="-1"><a class="direct-link" href="#svg" aria-hidden="true">#</a> SVG</h4>
 <pre class="language-svg"><code class="language-svg"> <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>svg</span> <span class="token attr-name">xmlns</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>http://www.w3.org/2000/svg<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>...<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>svg</span><span class="token punctuation">></span></span></code></pre>
-<p>SVG is a namespaced XML format. This is a important part of the root element, as it defined what will be possible to do within it.<br>
+<p>SVG is a namespaced XML format. This is an important part of the root element, as it define what will be possible to do within it.<br>
 The bare minimum namespace you should have is the SVG namespace itself. Just like HTML <code>doctype</code>, this namespace allow the interpretor to know how the syntax should be interpreted. There is only one value for it at the moment, therefore it has been made <em>optional</em> for <strong>inline SVG</strong>.<br>
-This is still <em>mandatory</em> when it is consumed another way, so I would recommend keeping it. If you really want too andyou are confident it will always be used inline, you can strip it and save a few bytes.</p>
+This is still <em>mandatory</em> when it is consumed another way, so I would recommend keeping it. If you really want too and you are confident it will always be used inline, you can strip it and save a few bytes.</p>
 <h4 id="xlink" tabindex="-1"><a class="direct-link" href="#xlink" aria-hidden="true">#</a> xlink</h4>
-<p>SVG can do more than just static graphics so you may encounter other namespaces like <strong>xlink</strong>. It can be use to add hypertext feature inside the SVG itself or handle anything related to linking in general (like object reference). We now have the opportunity to observe the difference between namespace declaration and its usage.</p>
+<p>SVG can do more than just static graphics so you may encounter other namespaces like <strong>xlink</strong>. It can be use to add hypertext feature inside the SVG itself.</p>
 <pre class="language-svg"><code class="language-svg">  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>svg</span> <span class="token attr-name">xmlns</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>http://www.w3.org/2000/svg<span class="token punctuation">"</span></span> <span class="token attr-name"><span class="token namespace">xmlns:</span>xlink</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>http://www.w3.org/1999/xlink<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><br>    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>a</span> <span class="token attr-name"><span class="token namespace">xlink:</span>href</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>https://google.com<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>google<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>a</span><span class="token punctuation">></span></span><br>  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>svg</span><span class="token punctuation">></span></span></code></pre>
-<p>As you can see in this example, we first declare the <code>xlink</code> namespace on the root element then we can use the prefixed attributes belonging to it. SVG2 deprecate the usage of the namespace but support may still be problematic: take your precaution in such case. Chris Coyier mention it briefly in his <a href="https://css-tricks.com/on-xlinkhref-being-deprecated-in-svg/">&quot;On xlink:href being deprecated in SVG&quot;</a> article.</p>
+<p>As you can see in this example, we first declare the <code>xlink</code> namespace on the root element then we can use the prefixed attributes belonging to it. SVG2 deprecate the usage of this specific namespace but support may still be problematic: take your precaution in such case. Chris Coyier mention it briefly in his <a href="https://css-tricks.com/on-xlinkhref-being-deprecated-in-svg/">&quot;On xlink:href being deprecated in SVG&quot;</a> article.</p>
 <h4 id="xml-events-and-others" tabindex="-1"><a class="direct-link" href="#xml-events-and-others" aria-hidden="true">#</a> xml-events and others</h4>
-<p>XML being extensible (eXtensible Markup Language), you may encounter a large variety of exotic namespace in your journey. I will only mention a last one since it has a lot to do with interaction: <code>xml-events</code> and you may find <a href="https://www.w3.org/TR/2004/WD-SVG12-20041027/xmlevents.html">the spec</a> useful.</p>
+<p>XML being extensible (eXtensible Markup Language), you may encounter a large variety of exotic namespace in your journey. I will only mention a last one since it has a lot to do with interaction: <code>xml-events</code>. If you want to know more, you may find <a href="https://www.w3.org/TR/2004/WD-SVG12-20041027/xmlevents.html">the spec</a> useful to start with.</p>
 <h3 id="useless-elements" tabindex="-1"><a class="direct-link" href="#useless-elements" aria-hidden="true">#</a> Useless elements</h3>
 <h4 id="group-tag-lessggreater" tabindex="-1"><a class="direct-link" href="#group-tag-lessggreater" aria-hidden="true">#</a> Group tag <code>&lt;g&gt;</code></h4>
-<p>The <code>&lt;g&gt;</code> do not draw anything on the screen, but it is frequent to find it anyway. You could have various reason for this situation:</p>
+<p>The <code>&lt;g&gt;</code> do not draw anything on the screen, but it is frequent to find it anyway. You have various reason for this situation:</p>
 <ul>
-<li>The designer could be organising her workspace by grouping related elements together, for selecting and manipulating them together more easily.</li>
-<li>The tag is used to host property shared by the children or to apply a transformation or a filter to a group of elements.</li>
+<li>The designer could be organizing her workspace by grouping related elements together: it allow easier selection and manipulation.</li>
+<li>The tag is used to apply properties, a transformation or a filter to a group of children elements.</li>
 </ul>
 <p>Depending on the situation, you can either optimise or remove those elements.</p>
 <ul>
-<li>The svg root tag can also host some heritable properties,</li>
+<li>The SVG root tag can also host some heritable properties,</li>
 <li>Maybe the grouped elements could be transformed in a single path elements</li>
-<li>A <code>&lt;g&gt;</code> tag can also be used for animation or eventhandler at runtime, so it may make sens to keep them in there to make that simpler. You will probably attach a <code>class</code> or an <code>id</code> to it then.</li>
+<li>A <code>&lt;g&gt;</code> tag can also be used for animation or event-handler at runtime, so it may be smart to keep them in there to make that simpler. In such case, you will probably attach a <code>class</code> or an <code>id</code> to it.</li>
 </ul>
 <h3 id="ignored-attributes" tabindex="-1"><a class="direct-link" href="#ignored-attributes" aria-hidden="true">#</a> Ignored attributes</h3>
-<p>Some artefacts may be left over by the app or a fellow developer moving fragments around.<br>
-Lets have a look at the following elements:</p>
+<p>Some artefact may be left over by the app or a fellow developer moving fragments around.<br>
+Let's have a look at the following elements:</p>
 <div style="display: flex; flex-flow: raw wrap; gap: 1rem; justify-content: center;">
 <svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" viewBox="0 0 20 20" fill="currentColor">
   <path
@@ -173,12 +193,12 @@ Lets have a look at the following elements:</p>
 <p>Can you spot the issue? Yep that's right, <code>clip-rule</code> do not have any effect on this calendar icon. However, you can see on the third icon that the missing <code>fill-rule</code> attribute was <em>extruding</em> the shape: be cautious as this could be easy to miss.</p>
 <ul>
 <li><code>fill-rule</code> allow you to control how self overlapping path behave, check it on <a href="https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/fill-rule">MDN: SVG Attribute <code>fill-rule</code></a></li>
-<li><code>clip-rule</code> does the same for every <code>&lt;path&gt;</code> grouped inside a <code>&lt;clipPath&gt;</code> element: we do not have that on the icon, so it can be safely removed. More about this here: <a href="https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/clip-rule">MDN: SVG Attributs <code>clip-rule</code></a></li>
+<li><code>clip-rule</code> does the same for every <code>&lt;path&gt;</code> grouped inside a <code>&lt;clipPath&gt;</code> element: we do not have that on the icon, so it can be safely removed. More about this here: <a href="https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/clip-rule">MDN: SVG Attributes <code>clip-rule</code></a></li>
 </ul>
 <h3 id="inheritance-conflict" tabindex="-1"><a class="direct-link" href="#inheritance-conflict" aria-hidden="true">#</a> Inheritance conflict</h3>
 <pre class="language-svg"><code class="language-svg"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>svg</span> <span class="token attr-name">width</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>20<span class="token punctuation">"</span></span> <span class="token attr-name">height</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>20<span class="token punctuation">"</span></span> <span class="token attr-name">viewBox</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>0 0 20 20<span class="token punctuation">"</span></span> <span class="token attr-name">fill</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>currentColor<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><br>  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>path</span><br>    <span class="token attr-name">d</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>M4.5 0H5.5V1H14.5V0H15.5V1H20V5V6V16H0V6V5V1H4.5V0ZM14.5 2V3H15.5V2H19V5H1.00263V2H4.5V3H5.5V2H14.5ZM1.00263 6V15H19V6H1.00263Z<span class="token punctuation">"</span></span><br>    <span class="token attr-name">fill</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>#333333<span class="token punctuation">"</span></span><br>  <span class="token punctuation">/></span></span><br><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>svg</span><span class="token punctuation">></span></span></code></pre>
-<p>In this example, we have a SVG root element using the <code>fill</code> attribute with the value <code>currentColor</code>. This CSS value let you use the value of the <code>color</code> property inherited from any previously set rule. Very convenient to adapt your icon to surrounding text. The cove above rewrite it on the path level making it ineffective. In this situation, you should probably use the <code>fill</code> value only once on the SVG tag with the value suiting your need.</p>
-<p>Caution: <code>currentColor</code> will only work on inline SVG, if used in <code>backround-image</code> or an <code>&lt;img /&gt;</code> tag, <code>curentColor</code> wont be accessible and will default to <code>black</code>. This is easy to miss because often the text <code>color</code> will also be black or dark grey shade.</p>
+<p>In this example, we have a SVG root element using the <code>fill</code> attribute with the value <code>currentColor</code>. This CSS value let you use the value of the <code>color</code> property inherited from any previously set rule. Very convenient to adapt your icon to surrounding text. The markup above overwrite the attribute on the path tag, making the first one ineffective. In this situation, you should probably use the <code>fill</code> value only once on the SVG tag with the suiting value.</p>
+<p>Caution: <code>currentColor</code> will only work on inline SVG, if used in <code>background-image</code> or an <code>&lt;img /&gt;</code> tag, <code>currentColor</code> wont be accessible and will default to <code>black</code>. This is easy to miss because often the text <code>color</code> will also be black or a dark grey shade.</p>
 <h3 id="useless-clipping" tabindex="-1"><a class="direct-link" href="#useless-clipping" aria-hidden="true">#</a> Useless Clipping</h3>
 <div style="display: flex; flex-flow: raw wrap; gap: 1rem; justify-content: center;">
 <svg width="80" height="80" viewBox="0 0 20 20" fill="currentColor">
@@ -248,17 +268,36 @@ Lets have a look at the following elements:</p>
     />
 </svg>
 </div>
-<p>Increasing a bit the width of the <code>viewBox</code> let us see than clipping may be a bit extreme: a sensible resize of the element to fit all the picture in the <code>viewBox</code> would probably have better result. Unfortunately, on original size of 20 by 20 this was not spotted on various review.</p>
+<p>Increasing a bit the width of the <code>viewBox</code> let us see that clipping may be a bit extreme: a sensible resize of the element to fit all the picture in the <code>viewBox</code> would probably have better result. Unfortunately, on the original size of 20 by 20 this was not identified during review.</p>
+<h3 id="automatic-or-programmatic-optimization" tabindex="-1"><a class="direct-link" href="#automatic-or-programmatic-optimization" aria-hidden="true">#</a> Automatic or programmatic optimization</h3>
+<h4 id="svgo" tabindex="-1"><a class="direct-link" href="#svgo" aria-hidden="true">#</a> SVGO</h4>
+<p>Available as a <em>cli</em> tool, svgo let you optimise svg, including math and transformation with several options, from light to strong gain. However some change can be destructive so be cautious and check the result!<br>
+[to be done]</p>
+<h4 id="svgomg" tabindex="-1"><a class="direct-link" href="#svgomg" aria-hidden="true">#</a> SVGOMG</h4>
+<p>Missing GUI interface of SVGO, SVGOMG was built by Jake Archibald. It give you direct feedback on the effect of the SVGO options chosen and a neat way of comparing the original and the optimized graphic.<br>
+[to be done]</p>
+<h4 id="svgr" tabindex="-1"><a class="direct-link" href="#svgr" aria-hidden="true">#</a> SVGR</h4>
+<p>React tool that can be use manually or at buildtime<br>
+<a href="https://react-svgr.com/">https://react-svgr.com/</a></p>
+<p>[to be done]</p>
+<h2 id="accessibility" tabindex="-1"><a class="direct-link" href="#accessibility" aria-hidden="true">#</a> Accessibility</h2>
+<p>SVG being a structured document, there is a lot of possible accessibility improvement to consider.<br>
+As always, there is severals articles covering this subject extensively.</p>
+<p>To get your basis cover you can start by treating SVG as images.</p>
+<p>[to be done]</p>
+<h2 id="conclusion" tabindex="-1"><a class="direct-link" href="#conclusion" aria-hidden="true">#</a> Conclusion</h2>
+<p>That's it, I shared a large overview of the points to look at when working with SVG.<br>
+[to be done]</p>
 <h2 id="other-resources" tabindex="-1"><a class="direct-link" href="#other-resources" aria-hidden="true">#</a> Other resources</h2>
 <h3 id="specification-and-documentation" tabindex="-1"><a class="direct-link" href="#specification-and-documentation" aria-hidden="true">#</a> Specification and Documentation</h3>
 <ul>
 <li><a href="https://www.w3.org/TR/SVG2/">Scalable Vector Graphics (SVG) 2 [CR], latest version</a></li>
 <li><a href="https://developer.mozilla.org/en-US/docs/Web/SVG">MDN, SVG: Scalable Vector Graphics </a></li>
 </ul>
-<h3 id="deep-look-at-the-chore" tabindex="-1"><a class="direct-link" href="#deep-look-at-the-chore" aria-hidden="true">#</a> Deep look at the Chore</h3>
+<h3 id="deep-look-at-the-core" tabindex="-1"><a class="direct-link" href="#deep-look-at-the-core" aria-hidden="true">#</a> Deep look at the Core</h3>
 <ul>
 <li><a href="https://www.sarasoueidan.com/blog/svg-coordinate-systems/">Understanding SVG Coordinate Systems and Transformations Part 1: The viewport, viewBox, and preserveAspectRatio - Sara Soueidan, 17.07.2014</a></li>
-<li><a href="https://www.sarasoueidan.com/blog/svg-coordinate-systems/">Understanding SVG Coordinate Systems and Transformations Part 2: The transform Attribute, Sara Soueidan, 30.07.2014</a>Which SVG technique performs best for way too many icons?</li>
+<li><a href="https://www.sarasoueidan.com/blog/svg-coordinate-systems/">Understanding SVG Coordinate Systems and Transformations Part 2: The transform Attribute, Sara Soueidan, 30.07.2014</a></li>
 <li><a href="https://www.sarasoueidan.com/blog/svg-coordinate-systems/">Understanding SVG Coordinate Systems and Transformations Part 3: Establishing New Viewports, Sara Soueidan, 05.08.2014</a></li>
 </ul>
 <h3 id="clever-tricks" tabindex="-1"><a class="direct-link" href="#clever-tricks" aria-hidden="true">#</a> Clever tricks</h3>
@@ -269,7 +308,7 @@ Lets have a look at the following elements:</p>
 <h3 id="video-and-podcast" tabindex="-1"><a class="direct-link" href="#video-and-podcast" aria-hidden="true">#</a> Video and podcast</h3>
 <ul>
 <li><a href="https://open.spotify.com/episode/0XTZOuRuQ5nSxTAUJ9H7AY?si=NOgZucQyQHONaSfTlh28FQ">051: Styling SVG in CSS, The CSS Podcast, 07.2021</a></li>
-<li><a href="https://www.youtube.com/watch?v=6qSN50Qk_54&amp;ab_channel=FrontendUnited">Lea Verou: The web design cheat code: Using SVG to bridge CSS’ gaps</a></li>
+<li><a href="https://www.youtube.com/watch?v=6qSN50Qk_54&amp;ab_channel=FrontendUnited">Lea Verou: The web design cheat code: Using SVG to bridge CSS‚Äô gaps</a></li>
 </ul>
 <h3 id="compatibility" tabindex="-1"><a class="direct-link" href="#compatibility" aria-hidden="true">#</a> Compatibility</h3>
 <ul>
@@ -278,6 +317,16 @@ Lets have a look at the following elements:</p>
 <h3 id="performance" tabindex="-1"><a class="direct-link" href="#performance" aria-hidden="true">#</a> Performance</h3>
 <ul>
 <li><a href="https://cloudfour.com/thinks/svg-icon-stress-test/">Which SVG technique performs best for way too many icons?, Tyler Sticka, 28.10.2021</a></li>
+<li><a href="https://css-tricks.com/tools-for-optimizing-svg/">Tools for Optimizing SVG, Chris Coyier, 17.03.2020</a></li>
+</ul>
+<h3 id="day-to-day-svg-usecases" tabindex="-1"><a class="direct-link" href="#day-to-day-svg-usecases" aria-hidden="true">#</a> Day to Day SVG usecases</h3>
+<ul>
+<li><a href="https://ishadeed.com/article/building-components-svg-css">Building UI Components With SVG and CSS, Ahmad Shadeed, 18.01.2022</a></li>
+</ul>
+<h3 id="accessibility-1" tabindex="-1"><a class="direct-link" href="#accessibility-1" aria-hidden="true">#</a> Accessibility</h3>
+<ul>
+<li><a href="https://css-tricks.com/accessible-svgs/">Accessible SVGs, Heather Migliorisi, 06.08.2016</a></li>
+<li><a href="https://www.smashingmagazine.com/2021/05/accessible-svg-patterns-comparison/">Accessible SVGs: Perfect Patterns For Screen Reader Users, Carrie Fisher, 26.05.2021</a></li>
 </ul>
 
 </article>
