@@ -41,13 +41,6 @@ Describe the origin of the SVG grid. Most of the we want to keep them at `0` as 
 `width` and `height`
 They are pretty much what we can expect, with one important point: they are unitless, they are not related to any pixel convention. That said, they often use the sames value as the expected size in the final document. This is purely for convenience: you should choose the values for readability making the math inside the SVG easier, in case you plan to animate the svg later. In most cases for simple elements, for example icons, you should keep the coordinate systems in sync with the design expectation.
 
-#### Points of cautions:
-
-SVG are scalable but it does not solve everything. 
-- **Sometimes not precise enough:** since the elements must eventually be translated to pixel, the vectors will be rasterized just like how text font work. This can have unwanted side effect if some parts of the graphic are too close to the edge of a clipped area (like what `viewBox` create). This is especially frequent on curved elements. This must be taken into account when choosing the viewBox: the easiest way to solve this is to reserve a small **safe zone** around the elements you want to be displayed. **This is rarely simple to do directly in the code and you will either have to use a *GUI* SVG Editor application or ask your designer to take this into account when preparing the assets.**  
-
-- Graphics are designed with a certain size in mind. Even if it can scale nicely and adapt to different resolution properly, deviating from the original intent can make it less relevant. If it is scaled down, some details may not be visible anymore. On the opposite side, a small and simple icon can be pertinent at small size, but be pretty boring if scaled too much. Do not expect miracle and use separate graphics when necessary. There is some smart solutions leveraging media-query that you could explore, you can find related links in the resources section.
-
 ### Height and Width:
 
 This pair of attributes is sometime referred to as viewport, not to confuse with `viewBox` or the browser window viewport. The height and width attribute of the svg element define how the svg viewport will be sized on the screen: the size it will be drawn to. Contrary to the height and width values of the `viewBox` attribute, we are dealing with units here. You do not have to use one, in which case it will probably resolve to `px`. Other possible values are the same as the one defined in CSS (em, ex, px, pt, pc, cm, mm, in and percentages).
@@ -58,7 +51,7 @@ To keep thing generic you will probably skip those values when working with comp
 ### preserveAspectRatio
 
 [MDN, preserveAspectRatio](https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/preserveAspectRatio)
-If you read the points above, you may have realised that it is possible that the ratio expressed by the `viewBox` is different from the one defined by the given `height` and `width` attributes. `preserveAspectRatio` let you define how the `viewBox` will fill the viewport (`height` and `width`, remember). It is kinf of the older brother of the css `object-fit` property: the syntax is a bit more rough and also let you manage the origin of scaling transformation applied.
+If you read the points above, you may have realised that it is possible that the ratio expressed by the `viewBox` is different from the one defined by the given `height` and `width` attributes. `preserveAspectRatio` let you define how the `viewBox` will fill the viewport (`height` and `width`, remember). It is kind of the older brother of the css `object-fit` property: the syntax is a bit more rough and also let you manage the origin of scaling transformation applied.
 
 ```svg
 <svg preserveAspectRatio="<align> [<meetOrSlice>]">...</svg>
@@ -68,17 +61,48 @@ If you read the points above, you may have realised that it is possible that the
 
 There is little chance you need to use this attribute if you keep your SVG viewport in sync with its viewBox, however in more complex scenario, it can become handy to use them.
 
+
+
+
+### Points of cautions:
+
+SVG are scalable but it does not solve everything. 
+- **Sometimes not precise enough:** since the elements must eventually be translated to pixel, the vectors will be rasterized just like how text font work. This can have unwanted side effect if some parts of the graphic are too close to the edge of a clipped area (like what `viewBox` create). This is especially frequent on curved elements. This must be taken into account when choosing the viewBox: the easiest way to solve this is to reserve a small **safe zone** around the elements you want to be displayed. **This is rarely simple to do directly in the code and you will either have to use a *GUI* SVG Editor application or ask your designer to take this into account when preparing the assets.**  
+
+- Graphics are designed with a certain size in mind. Even if it can scale nicely and adapt to different resolution properly, deviating from the original intent can make it less relevant. If it is scaled down, some details may not be visible anymore. On the opposite side, a small and simple icon can be pertinent at small size, but be pretty boring if scaled too much. Do not expect miracle and use separate graphics when necessary. There is some smart solutions leveraging media-query that you could explore, you can find related links in the resources section.
+
+- Not providing a viewBox property nor width and height will result in something similar to a viewBox of `0 0 300 150` and the same value for the `width` and `height` attributes. The svg will keep his size independently from the parent layout.
+<div style="overflow: hidden; resize: both;">
+<svg>
+ <rect x="0" y="0" 
+ width="600" 
+ height="200" 
+ style="fill: var(--ak-c-accent-1)"/>
+ <circle cx="50" cy="50" r="50" style="fill: var(--ak-c-contrast-1)"/>
+</svg>
+
+
+<svg viewBox="0 0 300 150">
+ <rect x="0" y="0" 
+ width="600" 
+ height="300" 
+ style="fill: var(--ak-c-accent-1)"/>
+ <circle cx="50" cy="50" r="50" style="fill: var(--ak-c-contrast-1)"/>
+</svg>
+</div>
+<small> the above container is `resizable`</small>
+
+Providing the same values directly will let the svg take all of its container available space: height and width default work in this situation like they were `100%`. 
+
 ### Going further with Layout
 I hope the part above was enough to have a simple understanding of how SVG can behave. However I only scratched the surface. Fortunately, 
 Sara Soueidan did an amazing job explaining in depth the theme is her series ["Understanding SVG Coordinate Systems and Transformations"](https://www.sarasoueidan.com/blog/svg-coordinate-systems/) (All articles are listed separately at the end of this page)
 
-## Manuall optimisations
+## Manual optimisations
 
 Now that we covered some basis, let's dive into SVG syntax.
 The asset source play a important role in the state your file is when you receive it.
-Each editor have their own quirks. I think especially about Inkscape where SVG is the raw format for working file. That may sound great, but it make (made?, I will have to verify, they probably improved since I last checked) the SVG bloated with Inkscape specific shenanigans (private namespaces). Other artefacts may have been added by the designer for convenience, but are no longer useful on production ready assets.
-
-I am currently exposed to Figma export, so some weirdness may be specific to this specific design tool.
+Each editor have their own quirks. I think especially about Inkscape where SVG is the raw format for working file. That may sound great, but it make (made?, I will have to verify, they probably improved since I last checked) the SVG bloated with Inkscape specific shenanigans (private namespaces). Other artefact may have been added by the designer for convenience, but are no longer useful on production ready assets.
 
 ### Namespaces
 
@@ -88,44 +112,44 @@ I am currently exposed to Figma export, so some weirdness may be specific to thi
  <svg xmlns="http://www.w3.org/2000/svg">...</svg>
 ```
 
-SVG is a namespaced XML format. This is a important part of the root element, as it defined what will be possible to do within it.
+SVG is a namespaced XML format. This is an important part of the root element, as it define what will be possible to do within it.
 The bare minimum namespace you should have is the SVG namespace itself. Just like HTML `doctype`, this namespace allow the interpretor to know how the syntax should be interpreted. There is only one value for it at the moment, therefore it has been made *optional* for **inline SVG**.
-This is still *mandatory* when it is consumed another way, so I would recommend keeping it. If you really want too andyou are confident it will always be used inline, you can strip it and save a few bytes.
+This is still *mandatory* when it is consumed another way, so I would recommend keeping it. If you really want too and you are confident it will always be used inline, you can strip it and save a few bytes.
 
 #### xlink
 
-SVG can do more than just static graphics so you may encounter other namespaces like **xlink**. It can be use to add hypertext feature inside the SVG itself or handle anything related to linking in general (like object reference). We now have the opportunity to observe the difference between namespace declaration and its usage.
+SVG can do more than just static graphics so you may encounter other namespaces like **xlink**. It can be use to add hypertext feature inside the SVG itself.
 
 ```svg
   <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
     <a xlink:href="https://google.com">google</a>
   </svg>
 ```
-As you can see in this example, we first declare the `xlink` namespace on the root element then we can use the prefixed attributes belonging to it. SVG2 deprecate the usage of the namespace but support may still be problematic: take your precaution in such case. Chris Coyier mention it briefly in his ["On xlink:href being deprecated in SVG"](https://css-tricks.com/on-xlinkhref-being-deprecated-in-svg/) article.
+As you can see in this example, we first declare the `xlink` namespace on the root element then we can use the prefixed attributes belonging to it. SVG2 deprecate the usage of this specific namespace but support may still be problematic: take your precaution in such case. Chris Coyier mention it briefly in his ["On xlink:href being deprecated in SVG"](https://css-tricks.com/on-xlinkhref-being-deprecated-in-svg/) article.
 
 #### xml-events and others
 
-XML being extensible (eXtensible Markup Language), you may encounter a large variety of exotic namespace in your journey. I will only mention a last one since it has a lot to do with interaction: `xml-events` and you may find [the spec](https://www.w3.org/TR/2004/WD-SVG12-20041027/xmlevents.html) useful.
+XML being extensible (eXtensible Markup Language), you may encounter a large variety of exotic namespace in your journey. I will only mention a last one since it has a lot to do with interaction: `xml-events`. If you want to know more, you may find [the spec](https://www.w3.org/TR/2004/WD-SVG12-20041027/xmlevents.html) useful to start with.
 
 ### Useless elements
 
 #### Group tag `<g>`
 
-The `<g>` do not draw anything on the screen, but it is frequent to find it anyway. You could have various reason for this situation:
+The `<g>` do not draw anything on the screen, but it is frequent to find it anyway. You have various reason for this situation:
 
-- The designer could be organising her workspace by grouping related elements together, for selecting and manipulating them together more easily.
-- The tag is used to host property shared by the children or to apply a transformation or a filter to a group of elements.
+- The designer could be organizing her workspace by grouping related elements together: it allow easier selection and manipulation.
+- The tag is used to apply properties, a transformation or a filter to a group of children elements.
 
 Depending on the situation, you can either optimise or remove those elements.
-- The svg root tag can also host some heritable properties,
+- The SVG root tag can also host some heritable properties,
 - Maybe the grouped elements could be transformed in a single path elements
-- A `<g>` tag can also be used for animation or eventhandler at runtime, so it may make sens to keep them in there to make that simpler. You will probably attach a `class` or an `id` to it then.
+- A `<g>` tag can also be used for animation or event-handler at runtime, so it may be smart to keep them in there to make that simpler. In such case, you will probably attach a `class` or an `id` to it.
 
 
 ### Ignored attributes
 
-Some artefacts may be left over by the app or a fellow developer moving fragments around. 
-Lets have a look at the following elements:
+Some artefact may be left over by the app or a fellow developer moving fragments around. 
+Let's have a look at the following elements:
 
 <div style="display: flex; flex-flow: raw wrap; gap: 1rem; justify-content: center;">
 <svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" viewBox="0 0 20 20" fill="currentColor">
@@ -174,7 +198,7 @@ Lets have a look at the following elements:
 Can you spot the issue? Yep that's right, `clip-rule` do not have any effect on this calendar icon. However, you can see on the third icon that the missing `fill-rule` attribute was *extruding* the shape: be cautious as this could be easy to miss.
 
 - `fill-rule` allow you to control how self overlapping path behave, check it on [MDN: SVG Attribute `fill-rule`](https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/fill-rule)
-- `clip-rule` does the same for every `<path>` grouped inside a `<clipPath>` element: we do not have that on the icon, so it can be safely removed. More about this here: [MDN: SVG Attributs `clip-rule`](https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/clip-rule)
+- `clip-rule` does the same for every `<path>` grouped inside a `<clipPath>` element: we do not have that on the icon, so it can be safely removed. More about this here: [MDN: SVG Attributes `clip-rule`](https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/clip-rule)
  
 
 ### Inheritance conflict
@@ -188,9 +212,9 @@ Can you spot the issue? Yep that's right, `clip-rule` do not have any effect on 
 </svg>
 ```
 
-In this example, we have a SVG root element using the `fill` attribute with the value `currentColor`. This CSS value let you use the value of the `color` property inherited from any previously set rule. Very convenient to adapt your icon to surrounding text. The cove above rewrite it on the path level making it ineffective. In this situation, you should probably use the `fill` value only once on the SVG tag with the value suiting your need.  
+In this example, we have a SVG root element using the `fill` attribute with the value `currentColor`. This CSS value let you use the value of the `color` property inherited from any previously set rule. Very convenient to adapt your icon to surrounding text. The markup above overwrite the attribute on the path tag, making the first one ineffective. In this situation, you should probably use the `fill` value only once on the SVG tag with the suiting value.  
 
-Caution: `currentColor` will only work on inline SVG, if used in `backround-image` or an `<img />` tag, `curentColor` wont be accessible and will default to `black`. This is easy to miss because often the text `color` will also be black or dark grey shade.  
+Caution: `currentColor` will only work on inline SVG, if used in `background-image` or an `<img />` tag, `currentColor` wont be accessible and will default to `black`. This is easy to miss because often the text `color` will also be black or a dark grey shade.  
 
 ### Useless Clipping
 
@@ -295,16 +319,48 @@ We probably have this situation because the designer defined the clipping on a l
 </svg>
 </div>
 
-Increasing a bit the width of the `viewBox` let us see than clipping may be a bit extreme: a sensible resize of the element to fit all the picture in the `viewBox` would probably have better result. Unfortunately, on original size of 20 by 20 this was not spotted on various review.
+Increasing a bit the width of the `viewBox` let us see that clipping may be a bit extreme: a sensible resize of the element to fit all the picture in the `viewBox` would probably have better result. Unfortunately, on the original size of 20 by 20 this was not identified during review.
+
+
+### Automatic or programmatic optimization
+#### SVGO
+Available as a *cli* tool, svgo let you optimise svg, including math and transformation with several options, from light to strong gain. However some change can be destructive so be cautious and check the result!
+[to be done]
+
+#### SVGOMG
+Missing GUI interface of SVGO, SVGOMG was built by Jake Archibald. It give you direct feedback on the effect of the SVGO options chosen and a neat way of comparing the original and the optimized graphic.
+[to be done]
+
+#### SVGR
+
+React tool that can be use manually or at buildtime 
+https://react-svgr.com/
+
+[to be done]
+
+## Accessibility 
+SVG being a structured document, there is a lot of possible accessibility improvement to consider.
+As always, there is severals articles covering this subject extensively.
+
+To get your basis cover you can start by treating SVG as images. 
+
+[to be done]
+
+## Conclusion
+
+That's it, I shared a large overview of the points to look at when working with SVG. 
+[to be done]
+
+
 ## Other resources
 
 ### Specification and Documentation
 - [Scalable Vector Graphics (SVG) 2 [CR], latest version](https://www.w3.org/TR/SVG2/)
 - [MDN, SVG: Scalable Vector Graphics ](https://developer.mozilla.org/en-US/docs/Web/SVG)
 
-### Deep look at the Chore
+### Deep look at the Core
 - [Understanding SVG Coordinate Systems and Transformations Part 1: The viewport, viewBox, and preserveAspectRatio - Sara Soueidan, 17.07.2014](https://www.sarasoueidan.com/blog/svg-coordinate-systems/)
-- [Understanding SVG Coordinate Systems and Transformations Part 2: The transform Attribute, Sara Soueidan, 30.07.2014](https://www.sarasoueidan.com/blog/svg-coordinate-systems/)Which SVG technique performs best for way too many icons?
+- [Understanding SVG Coordinate Systems and Transformations Part 2: The transform Attribute, Sara Soueidan, 30.07.2014](https://www.sarasoueidan.com/blog/svg-coordinate-systems/)
 - [Understanding SVG Coordinate Systems and Transformations Part 3: Establishing New Viewports, Sara Soueidan, 05.08.2014](https://www.sarasoueidan.com/blog/svg-coordinate-systems/)
 
 ### Clever tricks
@@ -313,10 +369,18 @@ Increasing a bit the width of the `viewBox` let us see than clipping may be a bi
 
 ### Video and podcast
 - [051: Styling SVG in CSS, The CSS Podcast, 07.2021](https://open.spotify.com/episode/0XTZOuRuQ5nSxTAUJ9H7AY?si=NOgZucQyQHONaSfTlh28FQ)
-- [Lea Verou: The web design cheat code: Using SVG to bridge CSS’ gaps](https://www.youtube.com/watch?v=6qSN50Qk_54&ab_channel=FrontendUnited)
+- [Lea Verou: The web design cheat code: Using SVG to bridge CSS‚Äô gaps](https://www.youtube.com/watch?v=6qSN50Qk_54&ab_channel=FrontendUnited)
 
 ### Compatibility
 - [On xlink:href being deprecated in SVG, Chris Coyier, 30.07.2018](https://css-tricks.com/on-xlinkhref-being-deprecated-in-svg/)
 
 ### Performance
 - [Which SVG technique performs best for way too many icons?, Tyler Sticka, 28.10.2021](https://cloudfour.com/thinks/svg-icon-stress-test/)
+- [Tools for Optimizing SVG, Chris Coyier, 17.03.2020](https://css-tricks.com/tools-for-optimizing-svg/)
+
+### Day to Day SVG usecases
+- [Building UI Components With SVG and CSS, Ahmad Shadeed, 18.01.2022](https://ishadeed.com/article/building-components-svg-css)
+
+### Accessibility
+- [Accessible SVGs, Heather Migliorisi, 06.08.2016](https://css-tricks.com/accessible-svgs/)
+- [Accessible SVGs: Perfect Patterns For Screen Reader Users, Carrie Fisher, 26.05.2021](https://www.smashingmagazine.com/2021/05/accessible-svg-patterns-comparison/)
