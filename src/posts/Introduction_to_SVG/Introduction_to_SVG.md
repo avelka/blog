@@ -14,7 +14,7 @@ SVG is a very particular format for 2 main reasons:
 - It is written in `XML`: most of the time "human readable", just like our good ol' `HTML`.  
 - It is a vector based graphic, which make it easily scalable (it is in the name: Scalable Vector Graphics)
 
-For more details, you can check out MDN Documentation page [SVG: Scalable Vector Graphics](https://developer.mozilla.org/en-US/docs/Web/SVG)https://www.w3.org/TR/2018/CR-SVG2-20181004/
+For more details, you can check out MDN Documentation page [SVG: Scalable Vector Graphics](https://developer.mozilla.org/en-US/docs/Web/SVG)
 
 Now, let's have a look at how to integrate SVG documents into your dev workflow.
 
@@ -358,8 +358,6 @@ Available as a *cli* and as node.js module on npm, svgo let you optimize svg, in
 
 [svgo on github](https://github.com/svg/svgo)
 #### SVGOMG
-
-<img src="/img/Introduction_to_SVG/svgomg.png" alt="using SVGOMG to optimize a SVG illustration"/>
 
 SVGO's missing GUI interface, SVGOMG, was built by Jake Archibald. It gives you direct feedback on the effects of the chosen SVGO options chosen and a neat way to compare the original and the optimized graphic.
 
