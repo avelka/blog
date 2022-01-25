@@ -75,7 +75,7 @@
 <li>It is written in <code>XML</code>: most of the time &quot;human readable&quot;, just like our good ol' <code>HTML</code>.</li>
 <li>It is a vector based graphic, which make it easily scalable (it is in the name: Scalable Vector Graphics)</li>
 </ul>
-<p>For more details, you can check out MDN Documentation page <a href="https://developer.mozilla.org/en-US/docs/Web/SVG">SVG: Scalable Vector Graphics</a><a href="https://www.w3.org/TR/2018/CR-SVG2-20181004/">https://www.w3.org/TR/2018/CR-SVG2-20181004/</a></p>
+<p>For more details, you can check out MDN Documentation page <a href="https://developer.mozilla.org/en-US/docs/Web/SVG">SVG: Scalable Vector Graphics</a></p>
 <p>Now, let's have a look at how to integrate SVG documents into your dev workflow.</p>
 <p>Most of the time, the developer is provided with either a raw SVG file or even have to make the export himself from the design app, Sketch, Figma, Adobe XD or Illustrator. In the latter case, we often need to extract part of the graphic, from a high fidelity mockup or from a icon collection board.</p>
 <p>At this point, we need to make some contextual decisions: what will be the viewport of you image, how is it supposed to scale, and how flexible it must be ?</p>
@@ -295,7 +295,6 @@ Let's take a look at the following elements:</p>
 <p>Available as a <em>cli</em> and as node.js module on npm, svgo let you optimize svg, including math and transformation with several options, from light to heavy gain. However, some changes can be destructive, so be cautious and check the result!</p>
 <p><a href="https://github.com/svg/svgo">svgo on github</a></p>
 <h4 id="svgomg" tabindex="-1"><a class="direct-link" href="#svgomg" aria-hidden="true">#</a> SVGOMG</h4>
-<img src="/img/Introduction_to_SVG/svgomg.png" alt="using SVGOMG to optimize a SVG illustration"/>
 <p>SVGO's missing GUI interface, SVGOMG, was built by Jake Archibald. It gives you direct feedback on the effects of the chosen SVGO options chosen and a neat way to compare the original and the optimized graphic.</p>
 <h4 id="svgr" tabindex="-1"><a class="direct-link" href="#svgr" aria-hidden="true">#</a> SVGR</h4>
 <p>React tool that can be used manually or at build time<br>
