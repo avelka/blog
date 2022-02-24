@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>MacOSX Front-end dev setup</title>
+		<meta name="description" content="I am writing about my experiences as a naval navel-gazer.">
+		
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+		<link href="https://fonts.googleapis.com/css2?family=Bitter&family=Fira+Code&family=Noto+Serif&display=swap" rel="stylesheet">
+
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer"/>
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/plugins/toolbar/prism-toolbar.min.css" integrity="sha512-ycl7dIZ0VJ5535/dzskAMTwOI6OoTNZ3PeD+tfckvYqMmAzaEwQfJHqJTSqcV2iQeJnp5XxnFy5jKotibstp7A==" crossorigin="anonymous" referrerpolicy="no-referrer"/>
+
+		<link rel="stylesheet" href="/assets/css/styles.css">
+		<link rel="alternate" href="/feed/feed.xml" type="application/atom+xml" title="Your Blog Name">
+		<link rel="alternate" href="/feed/feed.json" type="application/json" title="Your Blog Name">
+
+		<script defer type="module" src="/assets/js/i_want_to_be_an_artist.js"></script>
+		<script defer type="module" src="/assets/js/theme-switch.js"></script>
+	</head>
+	<body>
+		<div class="fleck-pattern"></div>
+		<header>
+			<nav class="skip-content">
+				<a href="#main-navigation">menu</a>
+				<a href="#main-content">content</a>
+			</nav>
+			<form id="theme-switcher">
+				<label class="ak-switch" for="dark">
+					<input id="dark" type="checkbox" name="theme" class="sr-only" />
+					<span data-state="off" aria-label="ligth-theme">☀️</span>
+					<span data-state="on" aria-label="dark-theme">🌒&nbsp;</span>
+				</label>
+			</form>
+			<nav class="main-nav" id="main-navigation">
+				<a href="/" class="home logo">a.k</a>
+				<a href="/posts/" class="icon">
+					<span class="material-icons">
+    topic
+    </span>
+				</a>
+				<a href="/about" class="icon">
+					<span class="material-icons">
+    person_pin
+    </span>
+				</a>
+			</nav>
+		</header>
+		
+
+		<main id="main-content"  class="tmpl-post">
+
+			<article class="ak-post">
+  <h1 class="ak-post__title">MacOSX Front-end dev setup</h1>
+  <div class="ak-meta">
+    <time class="ak-meta__time" datetime="2022-01-25">25.01.22</time>
+    <div class="ak-tags"><a href="/tags/osx/" class="ak-tags__item">OSX</a><a href="/tags/developerexperience/" class="ak-tags__item">DeveloperExperience</a>
+    </div>
+  </div>
+  <aside>
+    <details>
+        <summary>Table of content</summary>
+    <nav class="toc" >
+        <ol><li><a href="#xcode"># XCode</a></li><li><a href="#improving-your-terminal:-iterm2"># Improving your terminal: iTerm2</a><ol><li><a href="#pimp-your-shell"># Pimp your shell</a></li></ol></li><li><a href="#homebrew-package-manager"># Homebrew Package manager</a></li><li><a href="#nvm-and-nodejs"># NVM and nodejs</a></li><li><a href="#docker-desktop"># Docker Desktop</a></li><li><a href="#personal-tools:-tilling-manager"># Personal tools: tilling manager</a><ol><li><a href="#rectangle"># Rectangle</a></li><li><a href="#amethyst"># Amethyst</a></li></ol></li></ol>
+      </nav>
+    </details>
+  </aside>
+  <p>Today is your first day as front-end developer in this fancy company, Congrats!<br>
+They provided you with this shiny macbook pro full options, but there is one hiccup: you are a window user 👻.</p>
+<p>Don't be scared, here is a short list of tips and tools to get you started in the right track!</p>
+<h2 id="xcode" tabindex="-1"><a class="direct-link" href="#xcode" aria-hidden="true">#</a> XCode</h2>
+<p>Xcode is an IDE for the Mac ecosystem. You can use it to work, but this is not why we need it: it come with a bunch of packages that may be needed<br>
+by other programs and provide some nice other tools, like the simulator that we will discover later.</p>
+<p>Don't waste time and start downloading, as it will take some time (~13go, without optionals packages)</p>
+<p><a href="https://apps.apple.com/us/app/xcode/id497799835?mt=12">Xcode on appstore</a></p>
+<h2 id="improving-your-terminal:-iterm2" tabindex="-1"><a class="direct-link" href="#improving-your-terminal:-iterm2" aria-hidden="true">#</a> Improving your terminal: iTerm2</h2>
+<p>This is obviously opinionated and you have other options, but this is one of the most popular choice. Since we will spend some time in there for the rest of this article, we can deal with that first.</p>
+<p>Set it up from <a href="https://iterm2.com/index.html">iterm2.com</a> or go directly to the next step</p>
+<h3 id="pimp-your-shell" tabindex="-1"><a class="direct-link" href="#pimp-your-shell" aria-hidden="true">#</a> Pimp your shell</h3>
+<p>Since Catalina, macOS come with <code>zsh</code> instead of <code>bash</code>, so here you don't have to install anything. However you could be interested in customizing it a little with the help of some plugins: <a href="https://ohmyz.sh/">https://ohmyz.sh/</a></p>
+<p>For the adventurous, you could also give a try to <a href="https://fishshell.com/">fish</a> and <a href="https://github.com/oh-my-fish/oh-my-fish">oh-my-fish</a>,but maybe not on the first day as it has few differences that could cause troubles while running some scripts if you don't pay attention.</p>
+<h2 id="homebrew-package-manager" tabindex="-1"><a class="direct-link" href="#homebrew-package-manager" aria-hidden="true">#</a> Homebrew Package manager</h2>
+<p>Just like windows, macOS don't come with an actual package manager, you have to get it yourself.<br>
+Homebrew is the defacto standard for that, you can check their website <a href="https://brew.sh/">brew.sh</a> or just run the following command:</p>
+<pre class="language-bash"><code class="language-bash">/bin/bash -c <span class="token string">"<span class="token variable"><span class="token variable">$(</span><span class="token function">curl</span> -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh<span class="token variable">)</span></span>"</span></code></pre>
+<p>Once its done, you are all set to install the rest of the tools!</p>
+<blockquote>
+<p>If you are a windows user, you might want to check <code>chocolatey</code> for the same purpose on your personal machine.</p>
+</blockquote>
+<h2 id="nvm-and-nodejs" tabindex="-1"><a class="direct-link" href="#nvm-and-nodejs" aria-hidden="true">#</a> NVM and nodejs</h2>
+<p>NVM is short for Node Version Manager: it let you easily switch node version between project and can even do it automatically when you open a project by using the configuration file <code>.nvmrc</code> that can be set at the root of your projects.</p>
+<p>You can install it with the new brew command, but it is worth to mention that nvm dont officially support this installation options (if you have troubles, install it from the <a href="https://github.com/nvm-sh/nvm">official page</a>)</p>
+<pre class="language-shell"><code class="language-shell">brew <span class="token function">install</span> nvm</code></pre>
+<blockquote>
+<p>FYI: automatic switch wont work out of the box with <code>fish shell</code></p>
+</blockquote>
+<h2 id="docker-desktop" tabindex="-1"><a class="direct-link" href="#docker-desktop" aria-hidden="true">#</a> Docker Desktop</h2>
+<p>I don't think I need to present this one, but here you go:</p>
+<pre class="language-shell"><code class="language-shell">brew <span class="token function">install</span> --cask <span class="token function">docker</span></code></pre>
+<p>or from the official page <a href="https://www.docker.com/products/docker-desktop">docker desktop</a></p>
+<h2 id="personal-tools:-tilling-manager" tabindex="-1"><a class="direct-link" href="#personal-tools:-tilling-manager" aria-hidden="true">#</a> Personal tools: tilling manager</h2>
+<p>I am a casual user of tilling manager. If you are also interested, I can share 2 different one:</p>
+<h3 id="rectangle" tabindex="-1"><a class="direct-link" href="#rectangle" aria-hidden="true">#</a> Rectangle</h3>
+<p>Nice and simple, it is a small and easy experience to start on this path. Work out of the box and still rely on pointer device to do most of the work.</p>
+<p>Get it on their <a href="https://rectangleapp.com/">website</a> or through brew</p>
+<pre class="language-shell"><code class="language-shell">brew <span class="token function">install</span> --cask rectangle<br></code></pre>
+<h3 id="amethyst" tabindex="-1"><a class="direct-link" href="#amethyst" aria-hidden="true">#</a> Amethyst</h3>
+<p>All battery included, extensive configurable keyboard shortcut. You will most probably want to disabled almost everything and gradually add your own shortcut.</p>
+<p>Learn more on their <a href="https://github.com/ianyh/Amethyst">github page</a> or install it directly:</p>
+<pre class="language-shell"><code class="language-shell">brew <span class="token function">install</span> --cask amethyst</code></pre>
+
+</article>
+
+		</main>
+		<a class="floatBtn toTop" href="#">
+			<span class="material-icons">
+        arrow_upward
+      </span>
+		</a>
+		<footer></footer>
+
+		<!-- Current page: /drafts/OSX_front-end_dev_setup/ -->
+	</body>
+</html>
