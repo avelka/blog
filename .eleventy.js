@@ -86,7 +86,7 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.setLibrary("md", markdownLibrary);
   eleventyConfig.addPassthroughCopy('./src/assets');
   eleventyConfig.addWatchTarget("./src/assets/**/*.css");
-  eleventyConfig.addPassthroughCopy('./src/draft/**/*.png');
+  eleventyConfig.addPassthroughCopy('./src/drafts/**/*');
   // Override Browsersync defaults (used only with --serve)
   eleventyConfig.setBrowserSyncConfig({
     //files: ['_site/**/*'],
