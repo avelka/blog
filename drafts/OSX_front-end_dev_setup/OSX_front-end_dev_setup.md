@@ -14,25 +14,23 @@ Don't be scared, here is a short list of tips and tools to get you started in th
 
 ### XCode
 
-Xcode is an IDE for the Mac ecosystem. You can use it to work, but this is not why we need it: it come with a bunch of packages that may be needed 
-by other programs and provide some nice other tools, like the simulator that we will discover later.
-
-Don't waste time and start downloading, as it will take some time (~13go, without optionals packages)
-
-[Xcode on appstore](https://apps.apple.com/us/app/xcode/id497799835?mt=12)
-
+Xcode is an IDE for the Mac ecosystem. You can use it to work, but this is not why we need it: it come with a bunch of packages that may be needed by other programs and provide some nice other tools, like the simulator that we will discover later. 
+Don't waste time and start downloading [Xcode on App Store](https://apps.apple.com/us/app/xcode/id497799835?mt=12), as it will take some time (~13go, without optionals packages)
 
 ### Improving your terminal: iTerm2
-This is obviously opinionated and you have other options, but this is one of the most popular choice. Since we will spend some time in there for the rest of this article, we can deal with that first.
 
-Set it up from [iterm2.com](https://iterm2.com/index.html) or go directly to the next step 
+![Iterm2 with tokyo night theme, fish and oh-my-fish plugin collection](iterm-fish-with-ohmyfish.png)
+
+This is obviously opinionated, and you have other options, but this is one of the most popular choice. 
+Since we will spend some time in there for the rest of this article, we can deal with that now and get it from [iterm2.com](https://iterm2.com/index.html) or go directly to the next step. 
 
 #### Pimp your shell
-Since Catalina, macOS come with `zsh` instead of `bash`, so here you don't have to install anything. However you could be interested in customizing it a little with the help of some plugins: [https://ohmyz.sh/](https://ohmyz.sh/)
 
+With `Catalina` and onward, macOS come with `zsh` instead of `bash`, so here you don't have to install anything. However, you could be interested in customizing it a little with the help of some plugins: [https://ohmyz.sh/](https://ohmyz.sh/)
 For the adventurous, you could also give a try to [fish](https://fishshell.com/) and [oh-my-fish](https://github.com/oh-my-fish/oh-my-fish),but maybe not on the first day as it has few differences that could cause troubles while running some scripts if you don't pay attention. 
 
 ### Homebrew Package manager
+
 Just like windows, macOS don't come with an actual package manager, you have to get it yourself.
 Homebrew is the defacto standard for that, you can check their website [brew.sh](https://brew.sh/) or just run the following command:
 
@@ -40,10 +38,9 @@ Homebrew is the defacto standard for that, you can check their website [brew.sh]
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 ```
 
-Once its done, you are all set to install the rest of the tools!
+Once it's done, you are all set to install the rest of the tools!
 
 > If you are a Windows user, you might want to check `chocolatey` for the same purpose on your personal machine.
-
 
 ### NVM and nodejs
 
@@ -55,7 +52,7 @@ You can install it with the new brew command, but it is worth to mention that nv
 brew install nvm
 ```
 
-> FYI: automatic switch wont work out of the box with `fish shell`
+> FYI: automatic switch won't work out of the box with `fish shell`
 
 ### Docker Desktop
 
@@ -66,18 +63,21 @@ brew install --cask docker
 or from the official page [docker desktop](https://www.docker.com/products/docker-desktop)
 
 ### Tilling manager
+![amethyst middle column layout](amethist-tillilng.png)
 
-I am a casual user of tilling manager. If you are also interested, I can share 2 different one:
+I am a casual user of tilling manager. If you never heard about this topic before to you: they are small apps allowing us to organise the different windows on your desktop according to custom or predefined rules. Most of those actions and transitions can be enabled through keyboard shortcut, freeing us from tedious mouse manipulation for to get your perfect workspace ready.  If you are also interested, I can share 2 different one:
 
 #### Rectangle
 Nice and simple, it is a small and easy experience to start on this path. Work out of the box and still rely on pointer device to do most of the work.
 
-Get it on their [website](https://rectangleapp.com/) or through brew 
+Get it on their [website](https://rectangleapp.com/) or through brew.
  
  ```shell
  brew install --cask rectangle
 
  ```
+
+> Windows has some option for that within the [PowerToys apps list](https://docs.microsoft.com/en-us/windows/powertoys/fancyzones), however it is most popular in linux ecosystem where solution like `i3` sometime completely replace traditional environment such as `Gnome` or `KDE`
 
 #### Amethyst
 
@@ -138,10 +138,20 @@ To do so, open `Safari Technology Preview` that we installed earlier and reach f
 
 ![Connect the Safari dev tools](simulator_safari_dev_tools.png)
 
-Here you go, ou can now fix this nasty bug that your PM just hand you over! 
+Here you go, you can now fix this nasty bug that your PM just hand you over! 
 
+### Closing up
 
-#### Windows Internet Explorer 11 
+Feirabend!
+
+Check if you have not forgotten to save some work on other `space` (virtual desktop) with `ctrl + right/left arrow`,
+then lock your screen with `cmd + ctrl + q` or shutdown quickly using `Alfred4` productivity tool:
+
+![use alfred to shutdown your laptop](alfred-shutdown.png)
+
+Next article could be about setting up a window VM running IE 11 on your Mac (sacrilege), because your company can't give up on all the old monkeys stuck in 2013! 
+It is time for some quality time away from screens, see you next time !
+
 
 
 

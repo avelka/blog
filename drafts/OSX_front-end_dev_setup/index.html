@@ -65,7 +65,7 @@
     <details>
         <summary>Table of content</summary>
     <nav class="toc" >
-        <ol><li><a href="#applications"># Applications</a><ol><li><a href="#xcode"># XCode</a></li><li><a href="#improving-your-terminal:-iterm2"># Improving your terminal: iTerm2</a><ol><li><a href="#pimp-your-shell"># Pimp your shell</a></li></ol></li><li><a href="#homebrew-package-manager"># Homebrew Package manager</a></li><li><a href="#nvm-and-nodejs"># NVM and nodejs</a></li><li><a href="#docker-desktop"># Docker Desktop</a></li><li><a href="#tilling-manager"># Tilling manager</a><ol><li><a href="#rectangle"># Rectangle</a></li><li><a href="#amethyst"># Amethyst</a></li></ol></li><li><a href="#browsers"># Browsers</a><ol><li><a href="#safari-technology-preview"># Safari Technology Preview</a></li><li><a href="#firefox-chrome-edge-and-brave"># Firefox, Chrome, Edge and Brave</a></li></ol></li><li><a href="#debugging-tools"># Debugging Tools</a><ol><li><a href="#iphone-simulator"># Iphone Simulator</a></li><li><a href="#windows-internet-explorer-11"># Windows Internet Explorer 11</a></li></ol></li></ol></li></ol>
+        <ol><li><a href="#applications"># Applications</a><ol><li><a href="#xcode"># XCode</a></li><li><a href="#improving-your-terminal:-iterm2"># Improving your terminal: iTerm2</a><ol><li><a href="#pimp-your-shell"># Pimp your shell</a></li></ol></li><li><a href="#homebrew-package-manager"># Homebrew Package manager</a></li><li><a href="#nvm-and-nodejs"># NVM and nodejs</a></li><li><a href="#docker-desktop"># Docker Desktop</a></li><li><a href="#tilling-manager"># Tilling manager</a><ol><li><a href="#rectangle"># Rectangle</a></li><li><a href="#amethyst"># Amethyst</a></li></ol></li><li><a href="#browsers"># Browsers</a><ol><li><a href="#safari-technology-preview"># Safari Technology Preview</a></li><li><a href="#firefox-chrome-edge-and-brave"># Firefox, Chrome, Edge and Brave</a></li></ol></li><li><a href="#debugging-tools"># Debugging Tools</a><ol><li><a href="#iphone-simulator"># Iphone Simulator</a></li></ol></li><li><a href="#closing-up"># Closing up</a></li></ol></li></ol>
       </nav>
     </details>
   </aside>
@@ -74,21 +74,20 @@ They provided you with this shiny macbook pro full options, but there is one hic
 <p>Don't be scared, here is a short list of tips and tools to get you started in the right track!</p>
 <h2 id="applications" tabindex="-1"><a class="direct-link" href="#applications" aria-hidden="true">#</a> Applications</h2>
 <h3 id="xcode" tabindex="-1"><a class="direct-link" href="#xcode" aria-hidden="true">#</a> XCode</h3>
-<p>Xcode is an IDE for the Mac ecosystem. You can use it to work, but this is not why we need it: it come with a bunch of packages that may be needed<br>
-by other programs and provide some nice other tools, like the simulator that we will discover later.</p>
-<p>Don't waste time and start downloading, as it will take some time (~13go, without optionals packages)</p>
-<p><a href="https://apps.apple.com/us/app/xcode/id497799835?mt=12">Xcode on appstore</a></p>
+<p>Xcode is an IDE for the Mac ecosystem. You can use it to work, but this is not why we need it: it come with a bunch of packages that may be needed by other programs and provide some nice other tools, like the simulator that we will discover later.<br>
+Don't waste time and start downloading <a href="https://apps.apple.com/us/app/xcode/id497799835?mt=12">Xcode on App Store</a>, as it will take some time (~13go, without optionals packages)</p>
 <h3 id="improving-your-terminal:-iterm2" tabindex="-1"><a class="direct-link" href="#improving-your-terminal:-iterm2" aria-hidden="true">#</a> Improving your terminal: iTerm2</h3>
-<p>This is obviously opinionated and you have other options, but this is one of the most popular choice. Since we will spend some time in there for the rest of this article, we can deal with that first.</p>
-<p>Set it up from <a href="https://iterm2.com/index.html">iterm2.com</a> or go directly to the next step</p>
+<p><img src="iterm-fish-with-ohmyfish.png" alt="Iterm2 with tokyo night theme, fish and oh-my-fish plugin collection"></p>
+<p>This is obviously opinionated, and you have other options, but this is one of the most popular choice.<br>
+Since we will spend some time in there for the rest of this article, we can deal with that now and get it from <a href="https://iterm2.com/index.html">iterm2.com</a> or go directly to the next step.</p>
 <h4 id="pimp-your-shell" tabindex="-1"><a class="direct-link" href="#pimp-your-shell" aria-hidden="true">#</a> Pimp your shell</h4>
-<p>Since Catalina, macOS come with <code>zsh</code> instead of <code>bash</code>, so here you don't have to install anything. However you could be interested in customizing it a little with the help of some plugins: <a href="https://ohmyz.sh/">https://ohmyz.sh/</a></p>
-<p>For the adventurous, you could also give a try to <a href="https://fishshell.com/">fish</a> and <a href="https://github.com/oh-my-fish/oh-my-fish">oh-my-fish</a>,but maybe not on the first day as it has few differences that could cause troubles while running some scripts if you don't pay attention.</p>
+<p>With <code>Catalina</code> and onward, macOS come with <code>zsh</code> instead of <code>bash</code>, so here you don't have to install anything. However, you could be interested in customizing it a little with the help of some plugins: <a href="https://ohmyz.sh/">https://ohmyz.sh/</a><br>
+For the adventurous, you could also give a try to <a href="https://fishshell.com/">fish</a> and <a href="https://github.com/oh-my-fish/oh-my-fish">oh-my-fish</a>,but maybe not on the first day as it has few differences that could cause troubles while running some scripts if you don't pay attention.</p>
 <h3 id="homebrew-package-manager" tabindex="-1"><a class="direct-link" href="#homebrew-package-manager" aria-hidden="true">#</a> Homebrew Package manager</h3>
 <p>Just like windows, macOS don't come with an actual package manager, you have to get it yourself.<br>
 Homebrew is the defacto standard for that, you can check their website <a href="https://brew.sh/">brew.sh</a> or just run the following command:</p>
 <pre class="language-bash"><code class="language-bash">/bin/bash -c <span class="token string">"<span class="token variable"><span class="token variable">$(</span><span class="token function">curl</span> -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh<span class="token variable">)</span></span>"</span></code></pre>
-<p>Once its done, you are all set to install the rest of the tools!</p>
+<p>Once it's done, you are all set to install the rest of the tools!</p>
 <blockquote>
 <p>If you are a Windows user, you might want to check <code>chocolatey</code> for the same purpose on your personal machine.</p>
 </blockquote>
@@ -97,18 +96,22 @@ Homebrew is the defacto standard for that, you can check their website <a href="
 <p>You can install it with the new brew command, but it is worth to mention that nvm dont officially support this installation options (if you have troubles, install it from the <a href="https://github.com/nvm-sh/nvm">official page</a>)</p>
 <pre class="language-shell"><code class="language-shell">brew <span class="token function">install</span> nvm</code></pre>
 <blockquote>
-<p>FYI: automatic switch wont work out of the box with <code>fish shell</code></p>
+<p>FYI: automatic switch won't work out of the box with <code>fish shell</code></p>
 </blockquote>
 <h3 id="docker-desktop" tabindex="-1"><a class="direct-link" href="#docker-desktop" aria-hidden="true">#</a> Docker Desktop</h3>
 <p>I don't think I need to present this one, but here you go:</p>
 <pre class="language-shell"><code class="language-shell">brew <span class="token function">install</span> --cask <span class="token function">docker</span></code></pre>
 <p>or from the official page <a href="https://www.docker.com/products/docker-desktop">docker desktop</a></p>
 <h3 id="tilling-manager" tabindex="-1"><a class="direct-link" href="#tilling-manager" aria-hidden="true">#</a> Tilling manager</h3>
-<p>I am a casual user of tilling manager. If you are also interested, I can share 2 different one:</p>
+<p><img src="amethist-tillilng.png" alt="amethyst middle column layout"></p>
+<p>I am a casual user of tilling manager. If you never heard about this topic before to you: they are small apps allowing us to organise the different windows on your desktop according to custom or predefined rules. Most of those actions and transitions can be enabled through keyboard shortcut, freeing us from tedious mouse manipulation for to get your perfect workspace ready.  If you are also interested, I can share 2 different one:</p>
 <h4 id="rectangle" tabindex="-1"><a class="direct-link" href="#rectangle" aria-hidden="true">#</a> Rectangle</h4>
 <p>Nice and simple, it is a small and easy experience to start on this path. Work out of the box and still rely on pointer device to do most of the work.</p>
-<p>Get it on their <a href="https://rectangleapp.com/">website</a> or through brew</p>
+<p>Get it on their <a href="https://rectangleapp.com/">website</a> or through brew.</p>
 <pre class="language-shell"><code class="language-shell">brew <span class="token function">install</span> --cask rectangle<br></code></pre>
+<blockquote>
+<p>Windows has some option for that within the <a href="https://docs.microsoft.com/en-us/windows/powertoys/fancyzones">PowerToys apps list</a>, however it is most popular in linux ecosystem where solution like <code>i3</code> sometime completely replace traditional environment such as <code>Gnome</code> or <code>KDE</code></p>
+</blockquote>
 <h4 id="amethyst" tabindex="-1"><a class="direct-link" href="#amethyst" aria-hidden="true">#</a> Amethyst</h4>
 <p>All battery included, extensive configurable keyboard shortcut. You will most probably want to disable almost everything and gradually add your own shortcut.</p>
 <p>Learn more on their <a href="https://github.com/ianyh/Amethyst">GitHub page</a> or install it directly:</p>
@@ -135,8 +138,14 @@ You can use spotlight <code>cmd+space</code> or Alfred4 <code>option+space</code
 <p>The final touch is connecting the developer tools of safari to your running simulator.<br>
 To do so, open <code>Safari Technology Preview</code> that we installed earlier and reach fo the <code>develop &gt; &lt;your simulator&gt; &gt; Safari - &lt;your page&gt;</code>.</p>
 <p><img src="simulator_safari_dev_tools.png" alt="Connect the Safari dev tools"></p>
-<p>Here you go, ou can now fix this nasty bug that your PM just hand you over!</p>
-<h4 id="windows-internet-explorer-11" tabindex="-1"><a class="direct-link" href="#windows-internet-explorer-11" aria-hidden="true">#</a> Windows Internet Explorer 11</h4>
+<p>Here you go, you can now fix this nasty bug that your PM just hand you over!</p>
+<h3 id="closing-up" tabindex="-1"><a class="direct-link" href="#closing-up" aria-hidden="true">#</a> Closing up</h3>
+<p>Feirabend!</p>
+<p>Check if you have not forgotten to save some work on other <code>space</code> (virtual desktop) with <code>ctrl + right/left arrow</code>,<br>
+then lock your screen with <code>cmd + ctrl + q</code> or shutdown quickly using <code>Alfred4</code> productivity tool:</p>
+<p><img src="alfred-shutdown.png" alt="use alfred to shutdown your laptop"></p>
+<p>Next article could be about setting up a window VM running IE 11 on your Mac (sacrilege), because your company can't give up on all the old monkeys stuck in 2013!<br>
+It is time for some quality time away from screens, see you next time !</p>
 
 </article>
 
