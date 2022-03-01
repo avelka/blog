@@ -87,6 +87,7 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy('./src/assets');
   eleventyConfig.addWatchTarget("./src/assets/**/*.css");
   eleventyConfig.addPassthroughCopy('./src/drafts/**/*');
+  eleventyConfig.addPassthroughCopy('./src/posts/**/*');
   // Override Browsersync defaults (used only with --serve)
   eleventyConfig.setBrowserSyncConfig({
     //files: ['_site/**/*'],
