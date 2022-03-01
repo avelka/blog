@@ -77,7 +77,7 @@ Get it on their [website](https://rectangleapp.com/) or via brew.
 
  ```
 
-> Windows has some options for this in the [PowerToys apps list](https://docs.microsoft.com/en-us/windows/powertoys/fancyzones), but it is most popular in the Linux ecosystem, where solutions like `i3` sometimes completely replace traditional environments like `Gnome` or `KDE`.
+> Windows has some options for this in the [PowerToys apps list](https://docs.microsoft.com/en-us/windows/powertoys/fancyzones), but it is most popular in the Linux ecosystem, where solutions like `i3` sometimes completely replace traditional environments like `Gnome` or `KDE` (ex: [Manjaro i3 by the community](https://manjaro.org/downloads/community/i3/)).
 
 #### Amethyst
 
