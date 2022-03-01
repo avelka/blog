@@ -91,7 +91,7 @@ brew install --cask amethyst
 ### Launcher: Alfred4
 [Alfred](https://www.alfredapp.com/) is a launcher and command prompt. Its a bit like spotlight but faster and customizable. You invoke it with `option + space` and type what you want to do. It can be further improved by buying the *powerpack*, but the standard is already (subjectively) better than spotlight.
 
-```sh
+```shell
 brew install --cask alfred
 ```
 
