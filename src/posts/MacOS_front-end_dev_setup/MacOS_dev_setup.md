@@ -52,7 +52,7 @@ You can install it with the new brew command, but it's worth to mention that NVM
 brew install nvm
 ```
 
-> FYI: automatic switch won't work out of the box with `fish shell`
+> FYI: automatic switch won't work out of the box with `fish shell`. You can check this repo [jorgebucaran/nvm.fish](https://github.com/jorgebucaran/nvm.fish) for a fix.
 
 ### Docker Desktop
 
