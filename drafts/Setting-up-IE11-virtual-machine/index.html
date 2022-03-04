@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Setting up a Windows virtual machine with IE11</title>
+		<meta name="description" content="Journey of a web developer">
+		
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+		<link href="https://fonts.googleapis.com/css2?family=Bitter&family=Fira+Code&family=Noto+Serif&display=swap" rel="stylesheet">
+
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerpolicy="no-referrer"/>
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/plugins/toolbar/prism-toolbar.min.css" integrity="sha512-ycl7dIZ0VJ5535/dzskAMTwOI6OoTNZ3PeD+tfckvYqMmAzaEwQfJHqJTSqcV2iQeJnp5XxnFy5jKotibstp7A==" crossorigin="anonymous" referrerpolicy="no-referrer"/>
+
+		<link rel="stylesheet" href="/assets/css/styles.css">
+		<link rel="alternate" href="/feed/feed.xml" type="application/atom+xml" title="Avelka Dev Playground">
+		<link rel="alternate" href="/feed/feed.json" type="application/json" title="Avelka Dev Playground">
+
+		<script defer type="module" src="/assets/js/i_want_to_be_an_artist.js"></script>
+		<script defer type="module" src="/assets/js/theme-switch.js"></script>
+	</head>
+	<body>
+		<div class="fleck-pattern"></div>
+		<header>
+			<nav class="skip-content">
+				<a href="#main-navigation">menu</a>
+				<a href="#main-content">content</a>
+			</nav>
+			<form id="theme-switcher">
+				<label class="ak-switch" for="dark">
+					<input id="dark" type="checkbox" name="theme" class="sr-only" />
+					<span data-state="off" aria-label="ligth-theme">☀️</span>
+					<span data-state="on" aria-label="dark-theme">🌒&nbsp;</span>
+				</label>
+			</form>
+			<nav class="main-nav" id="main-navigation">
+				<a href="/" class="home logo">a.k</a>
+				<a href="/posts/" class="icon">
+					<span class="material-icons">
+    topic
+    </span>
+				</a>
+				<a href="/about" class="icon">
+					<span class="material-icons">
+    person_pin
+    </span>
+				</a>
+			</nav>
+		</header>
+		
+
+		<main id="main-content"  class="tmpl-post">
+
+			<article class="ak-post">
+  <h1 class="ak-post__title">Setting up a Windows virtual machine with IE11</h1>
+  <div class="ak-meta">
+    <time class="ak-meta__time" datetime="2022-03-03">03.03.22</time>
+    <div class="ak-tags"><a href="/tags/internet-explorer/" class="ak-tags__item">Internet Explorer</a><a href="/tags/tests/" class="ak-tags__item">Tests</a><a href="/tags/debugging/" class="ak-tags__item">Debugging</a><a href="/tags/developerexperience/" class="ak-tags__item">DeveloperExperience</a><a href="/tags/front-end/" class="ak-tags__item">Front-End</a><a href="/tags/virtualbox/" class="ak-tags__item">virtualbox</a>
+    </div>
+  </div>
+  <aside>
+    <details>
+        <summary>Table of content</summary>
+    <nav class="toc" >
+        <ol><li><a href="#vm-manager-virtualization-software"># VM manager / virtualization software</a></li><li><a href="#getting-the-vm"># Getting the VM</a></li></ol>
+      </nav>
+    </details>
+  </aside>
+  <p>Virtual Machines are an important tool for any developer that need to test quickly on different environments.<br>
+Nowadays, for on the front-end area, they are often overlooked in favor of testing tool such as browserstack. It is true that in most case, these type of services provide a simpler way to test your work, especially when we consider mobile devices.<br>
+However, online services have their own limitations such as network quality, pricing, latency, I/O, concurrent sessions...</p>
+<h2 id="vm-manager-virtualization-software" tabindex="-1"><a class="direct-link" href="#vm-manager-virtualization-software" aria-hidden="true">#</a> VM manager / virtualization software</h2>
+<p>This is where you store your images, configs and get the environment running.<br>
+You have several choices, some of them free.</p>
+<blockquote>
+<p>You may see <code>Vagrant</code> mentioned sometime, it is more an orchestrator than a fully fledged virtualization app. It let you work with several one through <em>BOX</em>  (packaged config files) and provide an unified CLI</p>
+</blockquote>
+<p><img src="virtualbox_ui.png" alt="Virtual box interface"><br>
+You have more that one option here, but we will go with <a href="https://www.virtualbox.org/">Virtualbox</a>.</p>
+<p>In additions of the official link above, you can also use brew:</p>
+<pre class="language-shell"><code class="language-shell"><span class="token comment"># https://formulae.brew.sh/cask/virtualbox#default</span><br>brew <span class="token function">install</span> --cask virtualbox</code></pre>
+<p>On first launch, you will have to give a few authorisations about security and accessibility features. Unfortunately, it may be silenced somehow.<br>
+<img src="accessibbility_authorization.png" alt="Accessibility prompt"><br>
+<img src="accessibbility_authorization_settings.png" alt="Accessibility authorization"><br>
+<img src="security_settings.png" alt="Security authorization"></p>
+<p>Right after starting the application or failing to add an image, check the security setting panel for the message shown in the picture bellow:<br>
+<img src="blocked_from_loading.png" alt="Security setting, blocked from loading"></p>
+<p>This message is know for disappearing after some time. if you dont see it but still experience problems, you can run the following command:</p>
+<pre class="language-shell"><code class="language-shell"><span class="token function">sudo</span> kextload -b org.virtualbox.kext.VBoxDrv</code></pre>
+<p>You should get a similar output as the following picture and the message with the allow button should be visible again in the security settings panel.<br>
+<img src="trigger_security_warning.png" alt="Security setting, blocked from loading"></p>
+<p>Now we are ready for some inception!</p>
+<h2 id="getting-the-vm" tabindex="-1"><a class="direct-link" href="#getting-the-vm" aria-hidden="true">#</a> Getting the VM</h2>
+<p>Microsoft in their magnanimity provide a <a href="https://developer.microsoft.com/en-us/microsoft-edge/tools/vms/">collection of VM</a> for virtualization solution.<br>
+Select the version and provider you want, and start the download. In our case we are looking for Windows 10 with MSEdge <strong>(also include IE11)</strong>.</p>
+<blockquote>
+<p>It is not a light download, so log of any VPN you might be using !</p>
+</blockquote>
+<p><img src="ms_vm_selection.png" alt="select your WM"></p>
+<p>Once the download is done, you will have to extract the VM from the zip.</p>
+<blockquote>
+<p>On MacOS you can screw that up with the normal archive manager app:</p>
+<p><strong>&quot;Mac users will need to use a tool that supports zip64, like The Unarchiver, to unzip the files.&quot;</strong></p>
+</blockquote>
+<p>However, you don't have to download anything, you can directly use the CLI:</p>
+<pre class="language-shell"><code class="language-shell"><span class="token function">unzip</span> MSEdge.Win10.VirtualBox.zip<br><span class="token comment"># Archive:  MSEdge.Win10.VirtualBox.zip</span><br><span class="token comment">#  inflating: MSEdge - Win10.ova</span></code></pre>
+<p>Open the <code>MSEdge - Win10.ova</code> file and you should be presented with a virtualbox prompt for importing the VM with included config</p>
+<p><img src="appliance_settings_import.png" alt="Add WM appliance"></p>
+<p>Once imported, you can start it and start playing arround!</p>
+<p><img src="wm_running.png" alt="windows10 running"></p>
+<p>You may want to update a bit your config, to have a smoother experience:<br>
+here is my current changes</p>
+<ul>
+<li>Video memory up to at least 64mb (or 128mb with 3D acceleration)</li>
+<li>Graphic driver switched to VBoxSVGA</li>
+<li>CPU Core up to 2 or 4</li>
+</ul>
+
+</article>
+
+		</main>
+		<a class="floatBtn toTop" href="#">
+			<span class="material-icons">
+        arrow_upward
+      </span>
+		</a>
+		<footer></footer>
+
+		<!-- Current page: /drafts/Setting-up-IE11-virtual-machine/ -->
+	</body>
+</html>
