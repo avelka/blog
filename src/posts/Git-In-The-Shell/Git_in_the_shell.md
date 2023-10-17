@@ -198,4 +198,103 @@ git cherry-pick <commit-hash>
 
 ### Git Log (Extracting a Changelog):
 
-Use git log to generate a changelog for a specific date range. For example, if you want to list commits between January 1, 2023, and Decem
+Use git log to generate a changelog for a specific date range. For example, if you want to list commits between January 1, 2023, and December 31, 2023:
+
+```bash
+git log --since="2023-01-01" --until="2023-12-31" --oneline
+```
+
+you can also use the --author flag to filter by author:
+
+```bash
+git log --author="Antoine Corre"
+```
+
+More advanced use case could be preparing a release changelog:
+
+1.Determine the Last Release Tag:
+
+First, you need to identify the tag that represents the last release in your Git repository. You can use git tag to list all the tags and find the most recent one.
+
+```bash
+git tag --sort=-committerdate
+```
+
+This command lists tags sorted by committer date in descending order, making it easier to identify the most recent release tag.
+
+2. Generate a Changelog Since the Last Release:
+
+Once you have identified the last release tag (let's say it's named "v1.0.0"), you can generate a changelog for all the commits made since that tag.
+
+```bash
+git log v1.0.0..HEAD --oneline
+```
+
+` v1.0.0..HEAD`` specifies the range of commits to display, starting from the last release tag (v1.0.0) and ending with the most recent commit in the current branch (HEAD).
+ `--oneline` is an option to display a compact one-line summary for each commit. This makes the changelog more concise.
+
+3. Customize the Changelog:
+
+You can further customize the changelog by using additional git log options. For example, you can add the --pretty option to format the output according to your preference. Here's an example of a formatted changelog:
+
+```bash
+git log v1.0.0..HEAD --pretty=format:"%h - %s (%an)"
+# %h displays the abbreviated commit hash.
+# %s shows the commit subject.
+# %an displays the author's name.
+```
+
+4.  Save or Output the Changelog:
+
+You can save the changelog to a text file or view it in the terminal. To save it to a file, you can use the > operator to redirect the output to a file:
+
+```bash
+git log v1.0.0..HEAD --oneline > changelog.txt
+# for macos user, pbcopy is the clipboard command
+git log v1.0.0..HEAD --oneline > pbcopy
+
+```
+
+This command saves the changelog to a file named "changelog.txt."
+
+By following these steps, you can use git log to generate a changelog that lists all the commits made since the last release tag up to the HEAD commit. This changelog can be useful for tracking and documenting the changes made in your project between releases.
+
+### Git Stash:
+
+Git stash is a useful command that allows you to temporarily save changes in your working directory without committing them. It's particularly handy when you need to switch to a different branch, address an urgent issue, or clean up your working directory without committing half-finished changes. Here are more details on how to use Git stash:
+
+To save your changes in a stash, use the following syntax:
+
+```bash
+git stash
+```
+
+To apply the changes from the most recent stash, use:
+
+```bash
+git stash apply
+```
+
+If you want to remove the changes from the stash after applying, use:
+
+```bash
+git stash pop
+```
+
+when dealing with multiple stashes, you can specify a stash by its ID:
+
+```bash
+git stash apply stash@{2}
+```
+
+list them with:
+
+```bash
+git stash list
+```
+
+to help you further you can add a message to your stash:
+
+```bash
+git stash save "message"
+```
