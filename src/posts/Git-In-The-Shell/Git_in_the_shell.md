@@ -298,3 +298,79 @@ to help you further you can add a message to your stash:
 ```bash
 git stash save "message"
 ```
+
+## Git Advanded topics
+
+### Git Worktree:
+
+Git worktree is a powerful feature introduced in Git 2.5 that allows you to maintain multiple working trees in the same repository. Each working tree is essentially a separate, isolated directory within your repository, and it can have its own branch.
+
+#### Use Cases for Git Worktree:
+
+Parallel Development: You can work on different features or bug fixes simultaneously in separate worktrees, which is particularly useful for larger projects.
+Testing and Verification: Use worktrees to quickly switch between different branches to test code changes or verify the impact of a bug fix.
+Documentation or User Guides: Maintain separate worktrees for different versions of your project to update documentation or guides without affecting the current development.
+
+#### Basic Git Worktree Commands:
+
+- Creating a new worktree:
+
+```bash
+git worktree add <path_to_new_worktree> <branch_name>
+```
+
+- Listing existing worktrees:
+
+```bash
+git worktree list
+```
+
+- Removing a worktree:
+
+```bash
+git worktree remove <path_to_worktree>
+```
+
+### Git Bisect:
+
+Git bisect is a built-in binary search tool in Git that helps you identify the commit that introduced a bug or regression in your project. It works by systematically narrowing down the range of commits where the issue was introduced.
+
+#### Use Cases for Git Bisect:
+
+- Bug Hunting: Use Git bisect to identify the exact commit that introduced a bug so you can address it.
+- Regression Testing: Ensure that previously working code remains error-free by quickly pinpointing the commit causing a regression.
+  Performance Optimization: Track down the commit that caused a performance regression in your codebase.
+
+#### Basic Git Bisect Commands:
+
+1. Start a bisect session:
+
+```bash
+git bisect start
+```
+
+2. Mark a known good and a known bad commit:
+
+```bash
+git bisect good <commit>
+git bisect bad <commit>
+```
+
+3. Automatically locate the first bad commit:
+
+```bash
+git bisect run <test_command>
+```
+
+4. Exit the bisect session:
+
+```bash
+git bisect reset
+```
+
+Both `git worktree` and `git bisect` are advanced Git commands that offer unique capabilities for more complex development and debugging scenarios. Understanding how to use these commands can greatly enhance your productivity as a Git user.
+
+### Some links:
+
+- [13 Advanced (but useful) Git Techniques and Shortcuts - Fireship](https://www.youtube.com/watch?v=ecK3EnyGD8o&t=303s&ab_channel=Fireship)
+- [Git Hidden Gems - Enrico Campidoglio - NDC Oslo 2023](https://www.youtube.com/watch?v=WtUCZYyv-_w&t=4s&ab_channel=NDCConferences)
